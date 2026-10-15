@@ -1,0 +1,4 @@
+# Doctor — Disabled checks
+# Add a check name (namespace/name, e.g. react/file-naming) to disable it.
+# One per line. Lines starting with `#` are comments.
+# Empty file = all checks run.

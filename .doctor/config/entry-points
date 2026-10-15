@@ -1,0 +1,48 @@
+# Doctor — Entry points
+# Files listed here are always considered "used" by the unused-files check.
+# One path per line, relative to project root. Supports glob patterns.
+
+# Next.js app router entry points
+apps/web/app/**/page.tsx
+apps/web/app/**/layout.tsx
+apps/web/app/**/error.tsx
+apps/web/app/**/loading.tsx
+apps/web/app/**/not-found.tsx
+apps/web/app/**/route.ts
+apps/web/app/**/template.tsx
+apps/web/app/**/default.tsx
+apps/web/middleware.ts
+apps/web/next.config.js
+apps/web/app/globals.css
+
+# Realtime (Socket.IO) app entry
+apps/realtime/src/**/*.ts
+
+# oRPC client setup
+apps/web/orpc/**/*.ts
+apps/web/orpc/**/*.tsx
+apps/web/lib/auth/auth-client.ts
+apps/web/lib/auth/sign-out.ts
+
+# Packages exposed entry points
+packages/server/src/routers/_app.ts
+# Realtime emitter service — the sanctioned (and only) consumer of
+# createRealtimeEmitter; wired into server-side flows as the app grows. Kept as
+# an entry point so the unused-files check does not flag the reference impl.
+packages/server/src/services/realtime.service.ts
+packages/database/index.ts
+packages/database/schema/index.ts
+packages/ui/src/index.ts
+packages/ui/src/**/*.tsx
+packages/ui/src/**/*.ts
+packages/email/src/**/*.tsx
+packages/email/src/**/*.ts
+packages/env/**/*.ts
+packages/analytics/src/**/*.ts
+packages/analytics/src/**/*.tsx
+packages/realtime/src/**/*.ts
+packages/realtime/src/**/*.tsx
+
+# Drizzle config + migrations
+packages/database/drizzle.config.ts
+packages/database/migrations/**/*.sql

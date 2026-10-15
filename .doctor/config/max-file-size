@@ -1,0 +1,13 @@
+# Doctor — Max file size limits
+# warn=250    # Lines before a warning
+# fail=300    # Lines before a failure
+# Use -1 to disable.
+
+warn=350
+fail=400
+
+# Generated / vendored files — no limit
+packages/database/migrations/**/*.sql            warn=-1 fail=-1
+packages/database/migrations/meta/**             warn=-1 fail=-1
+**/*.generated.ts                                warn=-1 fail=-1
+**/*.generated.tsx                               warn=-1 fail=-1

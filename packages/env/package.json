@@ -1,0 +1,28 @@
+{
+  "name": "@repo/env",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./shared": "./shared/index.ts",
+    "./apps-web": "./web/index.ts",
+    "./apps-web/railway-endpoints": "./web/resolve-railway-realtime-endpoints.ts",
+    "./apps-realtime": "./realtime/index.ts",
+    "./load-env": "./load-env.ts",
+    "./constants": "./constants.ts"
+  },
+  "scripts": {
+    "types:check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.13.8",
+    "@t3-oss/env-nextjs": "^0.13.8",
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.12"
+  }
+}

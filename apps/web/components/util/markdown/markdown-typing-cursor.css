@@ -1,0 +1,29 @@
+@reference "@repo/ui/globals.css";
+
+/* Markdown typing cursor animation */
+
+/* This CSS adds a blinking dot cursor that appears at the end of content
+   when the chatbot is typing. The class .md-typing should be added to
+   the markdown container when the bot is actively generating text */
+
+/* running indicator */
+.md-typing:empty::after,
+.md-typing > :where(:not(ol):not(ul):not(pre)):last-child::after,
+.md-typing > pre:last-child code::after,
+.md-typing
+  > :where(:is(ol, ul):last-child)
+  > :where(li:last-child:not(:has(* > li)))::after,
+.md-typing
+  > :where(:is(ol, ul):last-child)
+  > :where(li:last-child)
+  > :where(:is(ol, ul):last-child)
+  > :where(li:last-child:not(:has(* > li)))::after,
+.md-typing
+  > :where(:is(ol, ul):last-child)
+  > :where(li:last-child)
+  > :where(:is(ol, ul):last-child)
+  > :where(li:last-child)
+  > :where(:is(ol, ul):last-child)
+  > :where(li:last-child)::after {
+  @apply animate-pulse font-sans content-['\25CF'] ltr:ml-1 rtl:mr-1;
+}

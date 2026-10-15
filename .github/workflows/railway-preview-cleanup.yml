@@ -1,0 +1,27 @@
+name: Railway Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete-railway-preview:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.number != null
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Delete Railway PR environment
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
+        run: |
+          if [ -z "$RAILWAY_TOKEN" ] || [ -z "$RAILWAY_PROJECT_ID" ]; then
+            echo "RAILWAY_TOKEN or RAILWAY_PROJECT_ID not set; skipping cleanup."
+            exit 0
+          fi
+
+          node .github/scripts/railway-preview-sync.mjs \
+            --project-id "$RAILWAY_PROJECT_ID" \
+            --environment "pr-${{ github.event.pull_request.number }}" \
+            --action delete

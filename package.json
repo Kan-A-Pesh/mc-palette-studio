@@ -1,0 +1,47 @@
+{
+  "name": "turbo-template",
+  "version": "1.0.3",
+  "private": true,
+  "scripts": {
+    "postinstall": "node scripts/link-env.mjs",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "types:check": "pnpm --filter @repo/ui run build && turbo run types:check",
+    "checks:fix": "prettier --write \"**/*.{ts,tsx,md,css}\"",
+    "checks:doctor": "bash .doctor/run.sh .",
+    "checks": "prettier --check \"**/*.{ts,tsx,md,css}\" && pnpm types:check && pnpm lint && pnpm checks:doctor",
+    "db:check": "turbo run db:check",
+    "db:migrate": "turbo run db:migrate",
+    "db:studio": "turbo run db:studio",
+    "db:generate": "turbo run db:generate",
+    "db:push": "turbo run db:push",
+    "db:start": "docker compose up -d",
+    "db:stop": "docker compose down -v",
+    "auth:generate": "turbo run auth:generate",
+    "prepare": "husky",
+    "add:package": "pnpm dlx turbo gen workspace --type package --name",
+    "add:app": "pnpm dlx turbo gen workspace --type app --name",
+    "env:pull": "vercel env pull .env",
+    "sync": "git fetch template && git merge template/main",
+    "sync:initial": "git fetch template && git merge template/main --allow-unrelated-histories",
+    "setup:sync": "git remote get-url template >/dev/null 2>&1 && git remote set-url template https://github.com/impulse-studio/ultimate-template.git || git remote add template https://github.com/impulse-studio/ultimate-template.git",
+    "setup:vercel": "vercel link --yes --project ultimate-template-web && pnpm env:pull",
+    "setup:github": "node scripts/github-setup.mjs"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "turbo": "^2.6.0",
+    "typescript": "5.9.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "prettier": "^3.6.2"
+    }
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  }
+}

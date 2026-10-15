@@ -1,0 +1,6 @@
+# Doctor — `quality/no-pass-through-reexport` exemption list.
+#
+# Package export facades that intentionally re-export a third-party module.
+# One path per line, relative to project root. Lines starting with `#` are comments.
+#
+# Starts empty: the template carries no project-specific re-export facades.

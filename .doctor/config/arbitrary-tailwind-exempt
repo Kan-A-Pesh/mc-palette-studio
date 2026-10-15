@@ -1,0 +1,12 @@
+# Doctor — `ui/no-arbitrary-tailwind` per-file exemption list.
+#
+# Each line is a path suffix matched against the file path emitted by
+# `doctor_list_files`. Lines starting with `#` are comments. Use sparingly:
+# exemption is only for cases where the arbitrary value is genuinely runtime-
+# computed or there is a real design-system gap that an extension to the
+# Tailwind theme would not solve more cheaply.
+#
+# Pre-existing shadcn boilerplate is NOT a valid reason — refactor to tokens
+# instead.
+#
+# Starts empty: the template carries no project-specific exemptions.

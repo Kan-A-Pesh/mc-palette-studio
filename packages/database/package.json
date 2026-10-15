@@ -1,0 +1,46 @@
+{
+  "name": "@repo/database",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./auth": "./auth.ts",
+    "./constants": "./constants.ts",
+    "./redis": "./redis.ts",
+    "./organization": "./organization/permissions.ts",
+    "./stripe": "./stripe/shared/index.ts"
+  },
+  "scripts": {
+    "dev": "drizzle-kit studio",
+    "db:check": "drizzle-kit check",
+    "db:migrate": "tsx ./migrate.ts",
+    "db:generate": "pnpm auth:generate && pnpm exec drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "auth:generate": "pnpx @better-auth/cli@1.4.0 generate --config ./auth.ts -y --output ./schema/auth.ts",
+    "types:check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "@types/pg": "^8.15.6",
+    "drizzle-kit": "^0.31.6",
+    "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@better-auth/passkey": "^1.4.6",
+    "@better-auth/stripe": "^1.4.6",
+    "@repo/email": "workspace:*",
+    "@repo/env": "workspace:*",
+    "@simplewebauthn/server": "^13.2.2",
+    "better-auth": "^1.4.6",
+    "better-auth-harmony": "^1.2.5",
+    "drizzle-orm": "^0.44.7",
+    "ioredis": "^5.8.2",
+    "next": "16.0.10",
+    "pg": "^8.16.3",
+    "stripe": "^20.0.0",
+    "tsx": "^4.19.4",
+    "ulid": "^3.0.2"
+  }
+}

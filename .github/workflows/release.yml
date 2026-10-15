@@ -1,0 +1,66 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: Select the semver increment
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  release:
+    name: Release from dev
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: dev
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Configure Git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump package version
+        id: bump
+        run: |
+          NEW_VERSION=$(node .github/scripts/bump-version.mjs --release-type "${{ github.event.inputs.release_type }}")
+          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        run: |
+          git add package.json
+          git commit -m "chore: release v${{ steps.bump.outputs.version }}"
+
+      - name: Tag release
+        run: git tag "v${{ steps.bump.outputs.version }}"
+
+      - name: Push branch and tag
+        run: |
+          git push origin dev
+          git push origin "v${{ steps.bump.outputs.version }}"
+          git push origin HEAD:main --force-with-lease
+
+      - name: Publish GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: "v${{ steps.bump.outputs.version }}"
+          name: "v${{ steps.bump.outputs.version }}"
+          generateReleaseNotes: true
+

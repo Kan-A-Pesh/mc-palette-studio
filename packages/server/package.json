@@ -1,0 +1,27 @@
+{
+  "name": "@repo/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "types:check": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./src/routers/_app.ts"
+  },
+  "dependencies": {
+    "@orpc/contract": "^1.11.3",
+    "@orpc/server": "^1.13.6",
+    "@repo/database": "workspace:*",
+    "@repo/env": "workspace:*",
+    "@repo/realtime": "workspace:*",
+    "drizzle-orm": "^0.44.7",
+    "next": "16.0.10",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "typescript": "5.9.2"
+  }
+}

@@ -1,0 +1,166 @@
+---
+description: Standardize oRPC server router structure and procedure exports
+globs: packages/server/**
+alwaysApply: false
+---
+priority: high
+version: 2025.12.13
+---
+
+# oRPC Server Routers
+
+## Intent
+Keep every server-side oRPC router consistent so new domains drop into `packages/server/src/routers` without guessing about folder shapes, procedure wiring, or authentication metadata.
+
+## Scope
+- `packages/server/src/routers/**`
+- `packages/server/src/context.ts` and `@/server/procedure/*`
+- `packages/server/src/routers/_app.ts`
+
+## Procedure Types
+
+The server exposes four procedure types with different authentication and authorization requirements:
+
+### `publicProcedure`
+- No authentication required
+- Use for endpoints accessible by anyone (e.g., health checks, public data)
+- No `.meta()` needed
+
+### `authenticatedProcedure`
+- Requires user to be logged in
+- Adds `session` to context with non-null user and session data
+- No `.meta()` needed (authentication is automatic)
+- Use for any endpoint that needs a logged-in user but no role-based or organization-based access
+
+### `adminProcedure`
+- Requires user to be logged in AND have a specific role
+- **MUST** include `.meta({ roles: [...] })` or the middleware throws an error
+- Use for admin-only endpoints (e.g., user management, system settings)
+- Available roles are defined in `@repo/database` as `UserRole` (e.g., `"admin"`, `"user"`)
+
+### `organizationProcedure`
+- Requires user to be logged in, have an active organization, AND have specific permissions
+- **MUST** include `.meta({ permission: { resource, actions } })` or the middleware throws an error
+- Adds `activeOrganization` to context with full organization data
+- Use for organization-scoped endpoints (e.g., project management, team settings)
+- Resources and actions are defined in `@repo/database/organization/permissions`
+
+## Checklist
+1. Create one folder per domain under `packages/server/src/routers/<domain>` with `queries/`, `mutations/`, `validators.ts`, and `router.ts`.
+2. Inside `queries/` and `mutations/`, add an `index.ts` that re-exports every route file so `router.ts` only imports from the folder root.
+3. In each route file export exactly two symbols: `<routeName>Base` (the procedure) and `<routeName>Handler` (the resolver created via `.handler`).
+4. Build procedures with `publicProcedure`, `authenticatedProcedure`, `adminProcedure`, or `organizationProcedure`, chaining `.input(schema)` only when the route accepts data.
+5. Never wrap handlers in `try/catch`; rely on the shared error registry configured in `base` and throw domain errors or use `base.errors.*`.
+6. Compose routes inside `router.ts` by importing the bases and handlers, then calling `base.router({ ... })` with per-route `.route({ method })`, optional `.meta`, and `.handler(call(...))`.
+7. Lift every domain router into `packages/server/src/routers/_app.ts` and re-export `appRouter` (and its type) from `@repo/server` for client consumption.
+
+## Folder Layout
+Each domain folder must follow the same structure:
+
+```
+routers/
+  auth/
+    mutations/
+      index.ts
+      resend-invitation.ts
+    queries/
+      index.ts
+      list-users.ts
+    router.ts
+    validators.ts
+```
+
+Route files stay flat (one file → one procedure) so you can reason about inputs, auth, and handlers at a glance.
+
+## Procedure Files
+- Define the base with the most specific procedure helper you need
+- Define the handler by calling `.handler` on the base
+- Access context (database, session, headers, activeOrganization) through the destructured arguments
+
+## Router File Requirements
+- Import `base` from `@/server/context` and every `{ <name>Base, <name>Handler }` from the local `queries`/`mutations` indices.
+- Instantiate a router via `export const userRouter = base.router({ ... })`.
+- Each property name becomes the RPC path segment (`user.listUsers`, `user.updateProfile`, etc.).
+- Chain `.route({ method: "GET" | "POST" | "PATCH" | "DELETE" })` before `.meta`/`.handler` to keep HTTP verbs explicit.
+- Finish with `.handler(async ({ input, context }) => call(<name>Handler, input, { context }))` so the reusable handler stays testable.
+
+## Examples
+
+### Public Endpoint (no auth)
+```ts
+import { publicProcedure } from "../../../procedure/public.procedure";
+
+export const healthCheckBase = publicProcedure;
+
+export const healthCheckHandler = healthCheckBase.handler(async () => {
+  return { status: "ok" };
+});
+```
+
+### Authenticated Endpoint (logged-in user required)
+```ts
+import { authenticatedProcedure } from "../../../procedure/authenticated.procedure";
+import { getProfileSchema } from "../validators";
+
+export const getProfileBase = authenticatedProcedure.input(getProfileSchema);
+
+export const getProfileHandler = getProfileBase.handler(async ({ context }) => {
+  const { session } = context;
+  return { user: session.user };
+});
+```
+
+### Admin Endpoint (role check required)
+```ts
+import { adminProcedure } from "../../../procedure/admin.procedure";
+import { banUsersSchema } from "../validators";
+
+export const banUsersBase = adminProcedure
+  .meta({ roles: ["admin"] })
+  .input(banUsersSchema);
+
+export const banUsersHandler = banUsersBase.handler(async ({ input, context }) => {
+  const { userRole } = context;
+  // userRole is guaranteed to be one of the allowed roles
+  return { banned: input.userIds };
+});
+```
+
+### Organization Endpoint (permission check required)
+```ts
+import { organizationProcedure } from "../../../procedure/organization.procedure";
+import { createProjectSchema } from "../validators";
+
+export const createProjectBase = organizationProcedure
+  .meta({ permission: { resource: "project", actions: ["create"] } })
+  .input(createProjectSchema);
+
+export const createProjectHandler = createProjectBase.handler(async ({ input, context }) => {
+  const { activeOrganization, session } = context;
+  // activeOrganization is guaranteed to exist and user has "create" permission on "project"
+  return { projectId: "...", organizationId: activeOrganization.id };
+});
+```
+
+## Validators
+- Keep every schema inside `<domain>/validators.ts`.
+- Export schemas with descriptive names (`listUsersSchema`, `updateMultipleUsersStatusSchema`).
+- Reuse them across queries/mutations to guarantee both server validation and inferred client types stay synchronized.
+
+## Aggregation
+- `packages/server/src/routers/_app.ts` must merge every domain router into `appRouter` via `base.router({ auth: authRouter, ... })`.
+- Re-export `appRouter` (and `AppRouter` type) from `@repo/server` so clients can derive inputs/outputs with `InferRouter*`.
+- Any new domain router is added both to `_app.ts` and to whatever barrel file `@repo/server` exposes.
+
+## Good Patterns
+- Pair base + handler exports for every procedure to keep validation and resolver logic obvious.
+- Keep router files declarative (only `.route/.meta/.handler` chains) and push implementation details into handlers.
+- Use procedure helpers that encode auth requirements instead of sprinkling custom checks.
+- Share zod schemas between server handlers and any other server utilities (emails, background jobs) to stay type-safe.
+
+## Anti-Patterns
+- ❌ Using `adminProcedure` without `.meta({ roles: [...] })` - middleware will throw an error.
+- ❌ Using `organizationProcedure` without `.meta({ permission: { resource, actions } })` - middleware will throw an error.
+- ❌ Skipping `index.ts` inside `queries/` or `mutations/`, forcing deep relative imports in `router.ts`.
+- ❌ Exporting anything other than `<routeName>Base` and `<routeName>Handler` from a route file.
+- ❌ Wrapping handlers in `try/catch`—the oRPC stack already maps thrown errors to HTTP responses via `base.errors`.

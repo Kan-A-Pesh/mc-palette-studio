@@ -1,0 +1,11 @@
+# Doctor — `react/component-format` per-file exemption list.
+#
+# Paths listed here skip the "inline constants/functions before component" and
+# "multiple named exports" checks. Each line is a path suffix matched against
+# the file path emitted by `doctor_list_files`. Lines starting with `#` are
+# comments.
+#
+# TEMPLATE POLICY: this file stays EMPTY on the base template.
+# Conform the file (split cohesive sub-components / one export per file) or adapt
+# the check logic for structurally legitimate patterns (e.g. vendored shadcn
+# primitives under packages/ui/src/ui/**). Never add per-file exemptions here.

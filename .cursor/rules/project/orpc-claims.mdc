@@ -1,0 +1,67 @@
+---
+description: Explain how apps/web consumes oRPC via TanStack Query utilities
+globs: apps/web/**
+alwaysApply: false
+---
+priority: high
+version: 2025.11.21
+---
+
+# oRPC Client Usage
+
+## Scope
+- `apps/web/orpc/**`
+- `apps/web/providers/query-client.provider.tsx`
+- Any component or server action that imports `orpc`, `orpcClient`, or `api` from the oRPC helpers
+
+## Checklist
+1. Always import query and mutation hooks from `apps/web/orpc/client.ts`; never recreate clients inside components.
+2. Reuse the exported `RouterInput`/`RouterOutput` types when typing form payloads or component props.
+3. Wrap every client tree with `ORPCQueryClientProvider` (exposes `QueryClientProvider` + devtools flag) before calling any `orpc.*` hooks.
+4. When a page needs SSR prefetching, grab a per-request client via `getQueryClient()` and render children inside `HydrateClient`.
+5. Use `meta.invalidateQueries` on mutations so the shared `MutationCache` can evict stale data automatically.
+6. Call `api` from `apps/web/orpc/server.ts` inside server components or actions to fetch data without the browser client.
+7. Never wrap oRPC handlers with custom fetchers; rely on the generated TanStack helpers for caching, dedupe, and typing.
+
+## Query Usage
+- Every procedure becomes a typed hook via `orpc.<router>.<procedure>.useQuery`.
+- Pass the input object directly; TanStack Query options live under the second argument:
+
+```ts
+const { data, isLoading } = orpc.auth.listUsers.useQuery(
+    { page: 1, limit: 25 },
+    { query: { staleTime: 60_000 } }
+);
+```
+
+- Use `orpc.<router>.<procedure>.prefetch` or `.fetch` inside server components after grabbing a per-request `QueryClient` from `getQueryClient()`.
+- When generating query keys manually (for invalidation or sharing between hooks), reuse `orpc.<router>.<procedure>.getQueryKey` so keys always match the serializer logic.
+
+## Mutation Usage
+- Mutations live under `orpc.<router>.<procedure>.useMutation`.
+- Attach an `invalidateQueries` array to the mutation `meta` so the shared `MutationCache` can invalidate related queries automatically:
+
+```ts
+const mutation = orpc.auth.updateMultipleUsersStatus.useMutation({
+    meta: {
+        invalidateQueries: [orpc.auth.listUsers.getQueryKey({ page: 1 })],
+    },
+});
+```
+
+- Rely on the handler-side validation coming from the server procedure; keep browser-side schema work limited to form libraries if needed.
+
+## Provider + Hydration Requirements
+- Wrap every client subtree with `ORPCQueryClientProvider` from `apps/web/providers/query-client.provider.tsx`; it enables devtools via `env.NEXT_PUBLIC_REACT_QUERY_DEVTOOLS` and shares a single `QueryClient`.
+- For SSR/SSG pages, create a QueryClient via `getQueryClient()` (from `apps/web/orpc/query/hydration.tsx`), prefetch queries, and render them inside `<HydrateClient client={queryClient}>`.
+- Dehydration/rehydration already uses the custom serializer in `apps/web/orpc/query/client.ts`, so avoid overriding `queryKeyHashFn` or `serializeData` elsewhere.
+
+## Server-Only Access
+- `apps/web/orpc/server.ts` exposes `api` (per-request context) and a global `$client`. Use `api` when calling procedures in RSC loaders, Next.js route handlers, or server actions so headers, database handles, and sessions are injected automatically.
+- Do not import `orpc` or the browser client into server-only modules; the RPCLink throws if it runs outside the browser.
+
+## Anti-Patterns
+- ❌ Importing from anywhere other than `apps/web/orpc/client.ts` for query/mutation hooks.
+- ❌ Building ad-hoc fetch wrappers around `/api/rpc`; the generated hooks already know the router shape.
+- ❌ Forgetting to wrap new layouts/pages with `ORPCQueryClientProvider`, which will cause TanStack errors about missing context.
+- ❌ Manually mutating TanStack caches instead of using `meta.invalidateQueries`, which breaks the shared mutation cache contract.
