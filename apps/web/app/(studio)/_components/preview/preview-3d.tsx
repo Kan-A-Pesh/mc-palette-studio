@@ -44,10 +44,7 @@ export default function Preview3d({ palette, size }: Preview3dProps) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
     renderer.domElement.setAttribute("role", "img");
-    renderer.domElement.setAttribute(
-      "aria-label",
-      "Aperçu 3D : un coin de bâtiment, fais glisser pour tourner",
-    );
+    renderer.domElement.setAttribute("aria-label", "3D preview, drag to orbit");
     mount.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
@@ -169,8 +166,7 @@ export default function Preview3d({ palette, size }: Preview3dProps) {
   if (failed) {
     return (
       <p className="grid h-full place-items-center px-6 text-center text-sm text-studio-muted">
-        Ton navigateur ne gère pas WebGL : la vue 3D est indisponible, la vue 2D
-        reste utilisable.
+        WebGL is not available.
       </p>
     );
   }

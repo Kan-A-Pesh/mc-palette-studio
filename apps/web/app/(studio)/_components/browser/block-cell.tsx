@@ -18,11 +18,11 @@ export default function BlockCell({
     <li className="group relative">
       <button
         type="button"
-        title={`${block.name} — clic : bloc principal`}
-        aria-label={`${block.name}${isMain ? " (bloc principal)" : ""}`}
+        title={block.name}
+        aria-label={`${block.name}${isMain ? " (main block)" : ""}`}
         onClick={() => setMainBlock(block.id)}
         className={cn(
-          "grid aspect-square w-full place-items-center rounded-lg p-1 transition duration-150",
+          "grid aspect-square w-full place-items-center p-1 transition duration-150",
           "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-studio-accent",
           isMain && "bg-studio-accent-soft shadow-st-selected",
           !isMain && selected && "bg-studio-raised shadow-st-ring",
@@ -39,13 +39,12 @@ export default function BlockCell({
           type="button"
           aria-label={
             selected
-              ? `Retirer ${block.name} de la palette`
-              : `Ajouter ${block.name} à la palette`
+              ? `Remove ${block.name} from palette`
+              : `Add ${block.name} to palette`
           }
-          title={selected ? "Retirer de la palette" : "Ajouter à la palette"}
           onClick={() => toggleEntry(block.id)}
           className={cn(
-            "absolute -right-1 -top-1 grid size-5 place-items-center rounded-full text-st-md font-semibold leading-none transition-opacity duration-150",
+            "absolute -right-1 -top-1 grid size-5 place-items-center text-st-md font-semibold leading-none transition-opacity duration-150",
             "focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-studio-accent",
             selected
               ? "bg-studio-accent text-studio-accent-ink opacity-100"

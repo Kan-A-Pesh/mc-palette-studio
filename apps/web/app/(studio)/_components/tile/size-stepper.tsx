@@ -14,9 +14,9 @@ export default function SizeStepper({
   onChange,
 }: SizeStepperProps) {
   const step =
-    "grid size-6 place-items-center rounded-md text-studio-muted hover:bg-studio-raised hover:text-studio-text disabled:text-studio-line-strong focus-visible:outline-2 focus-visible:outline-studio-accent";
+    "grid size-6 place-items-center text-studio-muted hover:bg-studio-raised hover:text-studio-text disabled:text-studio-line-strong focus-visible:outline-2 focus-visible:outline-studio-accent";
   return (
-    <div className="flex items-center justify-between rounded-lg bg-studio-canvas px-2 py-1 ring-1 ring-studio-line">
+    <div className="flex items-center justify-between bg-studio-canvas px-2 py-1 ring-1 ring-studio-line">
       <span className="text-xs text-studio-muted">{label}</span>
       <div className="flex items-center gap-1">
         <button

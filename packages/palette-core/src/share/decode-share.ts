@@ -40,9 +40,7 @@ export function decodeShare(encoded: string): Palette | null {
 
   return createPalette(payload.m, {
     name:
-      typeof payload.n === "string"
-        ? payload.n.slice(0, 60)
-        : "Palette partagée",
+      typeof payload.n === "string" ? payload.n.slice(0, 60) : "Shared palette",
     entries: entries.length ? entries : [{ blockId: payload.m, weight: 100 }],
     mode: payload.k === "f" ? "fixed" : "random",
     surface: payload.s === "f" ? "floor" : "wall",

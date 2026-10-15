@@ -49,9 +49,9 @@ export async function renderPaletteCard(palette: Palette): Promise<Blob> {
   ctx.font = "20px system-ui, sans-serif";
   const kind =
     palette.mode === "fixed"
-      ? `Pattern fixe ${palette.tile.width}×${palette.tile.height}`
-      : "Pattern aléatoire";
-  const surface = palette.surface === "floor" ? "Sol" : "Mur";
+      ? `Tile ${palette.tile.width}×${palette.tile.height}`
+      : "Random";
+  const surface = palette.surface === "floor" ? "Floor" : "Wall";
   ctx.fillText(`${kind} · ${surface} · Minecraft`, padding, padding + 72);
 
   composition.forEach((entry, i) => {

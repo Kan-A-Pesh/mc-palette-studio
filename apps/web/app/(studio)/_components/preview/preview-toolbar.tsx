@@ -26,7 +26,7 @@ export default function PreviewToolbar({ palette }: { palette: Palette }) {
   return (
     <div className="flex flex-wrap items-center gap-2 border-b border-studio-line px-4 py-2.5">
       <Segmented
-        label="Type d'aperçu"
+        label="Preview mode"
         value={previewMode}
         onChange={setPreviewMode}
         options={[
@@ -39,15 +39,15 @@ export default function PreviewToolbar({ palette }: { palette: Palette }) {
         value={palette.surface}
         onChange={setSurface}
         options={[
-          { value: "wall", label: "Mur", title: "Faces latérales des blocs" },
-          { value: "floor", label: "Sol", title: "Faces du dessus des blocs" },
+          { value: "wall", label: "Wall" },
+          { value: "floor", label: "Floor" },
         ]}
       />
       <div className="ml-auto flex items-center gap-2">
         <label className="flex items-center gap-2 text-xs text-studio-muted">
-          <span className="whitespace-nowrap">Taille</span>
+          <span className="whitespace-nowrap">Size</span>
           <Range
-            label="Taille de l'aperçu"
+            label="Preview size"
             value={previewSize}
             min={8}
             max={48}
@@ -60,11 +60,11 @@ export default function PreviewToolbar({ palette }: { palette: Palette }) {
           <button
             type="button"
             aria-pressed={showGrid}
-            aria-label="Afficher la grille"
-            title="Grille"
+            aria-label="Show grid"
+            title="Grid"
             onClick={() => setShowGrid(!showGrid)}
             className={cn(
-              "grid size-8 place-items-center rounded-lg transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-studio-accent",
+              "grid size-8 place-items-center transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-studio-accent",
               showGrid
                 ? "bg-studio-raised text-studio-text"
                 : "text-studio-muted hover:text-studio-text",
@@ -78,10 +78,10 @@ export default function PreviewToolbar({ palette }: { palette: Palette }) {
             size="sm"
             variant="ghost"
             onClick={reseed}
-            title="Nouveau tirage aléatoire"
+            title="Reroll"
           >
             <RefreshCw className="size-3.5" />
-            Retirer
+            Reroll
           </StudioButton>
         )}
       </div>

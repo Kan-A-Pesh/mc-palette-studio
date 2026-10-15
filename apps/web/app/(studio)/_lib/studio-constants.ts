@@ -11,7 +11,7 @@ export const NEW_PALETTE_BLOCK = "stone_bricks";
 
 /** First palette of a new visitor: the factory example. */
 export const STARTER_PALETTE = {
-  name: "Usine",
+  name: "Factory",
   mainBlockId: "bricks",
   entries: [
     { blockId: "bricks", weight: 60 },
@@ -28,29 +28,23 @@ export const PREVIEW_3D_MAX_SIZE = 32;
 export const QUICK_ADD_COUNT = 6;
 
 export const CATEGORY_LABELS: Record<Category, string> = {
-  stone: "Pierre",
-  wood: "Bois",
-  colored: "Couleurs",
+  stone: "Stone",
+  wood: "Wood",
+  colored: "Colored",
   earth: "Nature",
-  metal: "Métal & minerais",
+  metal: "Metal & ores",
   nether: "Nether",
   end: "End",
-  ocean: "Océan",
-  light: "Lumière",
-  utility: "Utilitaires",
-};
-
-export const VARIATION_HINTS: Record<VariationMode, string> = {
-  color: "Blocs à la couleur et au grain proches.",
-  family: "Variantes officielles du même matériau, puis formes voisines.",
-  gradient: "Même teinte, du plus sombre au plus clair.",
+  ocean: "Ocean",
+  light: "Light",
+  utility: "Utility",
 };
 
 export const VARIATION_MODE_OPTIONS: { value: VariationMode; label: string }[] =
   [
-    { value: "color", label: "Couleur" },
-    { value: "family", label: "Famille" },
-    { value: "gradient", label: "Dégradé" },
+    { value: "color", label: "Color" },
+    { value: "family", label: "Family" },
+    { value: "gradient", label: "Gradient" },
   ];
 
 /** Colours of the exported PNG card (a canvas, so no CSS tokens). */

@@ -25,7 +25,7 @@ export default function PaletteMenuRow({
 
   return (
     <li
-      className="group flex items-center rounded-lg hover:bg-studio-raised"
+      className="group flex items-center hover:bg-studio-raised"
       onPointerLeave={() => setConfirming(false)}
     >
       <button
@@ -34,7 +34,7 @@ export default function PaletteMenuRow({
           selectPalette(palette.id);
           onDone();
         }}
-        className="flex min-w-0 flex-1 items-center gap-2.5 rounded-lg px-2 py-2 text-left focus-visible:outline-2 focus-visible:outline-studio-accent"
+        className="flex min-w-0 flex-1 items-center gap-2.5 px-2 py-2 text-left focus-visible:outline-2 focus-visible:outline-studio-accent"
       >
         <span className="flex -space-x-1.5">
           {palette.entries.slice(0, 4).map((e) => (
@@ -57,19 +57,19 @@ export default function PaletteMenuRow({
           </span>
           <span className="block truncate text-xs text-studio-faint">
             {getBlock(palette.mainBlockId)?.name} ·{" "}
-            {palette.mode === "fixed" ? "fixe" : "aléatoire"}
+            {palette.mode === "fixed" ? "tile" : "random"}
           </span>
         </span>
       </button>
       <button
         type="button"
-        aria-label={`Dupliquer ${palette.name}`}
-        title="Dupliquer"
+        aria-label={`Duplicate ${palette.name}`}
+        title="Duplicate"
         onClick={() => {
           duplicatePalette(palette.id);
           onDone();
         }}
-        className="grid size-7 place-items-center rounded-md text-studio-faint opacity-0 hover:text-studio-text focus-visible:opacity-100 group-hover:opacity-100"
+        className="grid size-7 place-items-center text-studio-faint opacity-0 hover:text-studio-text focus-visible:opacity-100 group-hover:opacity-100"
       >
         <Copy className="size-3.5" />
       </button>
@@ -77,21 +77,21 @@ export default function PaletteMenuRow({
         type="button"
         aria-label={
           confirming
-            ? `Confirmer la suppression de ${palette.name}`
-            : `Supprimer ${palette.name}`
+            ? `Confirm delete ${palette.name}`
+            : `Delete ${palette.name}`
         }
-        title={confirming ? "Cliquer pour confirmer" : "Supprimer"}
+        title="Delete"
         onClick={() =>
           confirming ? deletePalette(palette.id) : setConfirming(true)
         }
         className={cn(
-          "mr-1 grid h-7 place-items-center rounded-md px-1.5 text-xs focus-visible:opacity-100",
+          "mr-1 grid h-7 place-items-center px-1.5 text-xs focus-visible:opacity-100",
           confirming
             ? "bg-studio-danger/15 text-studio-danger"
             : "text-studio-faint opacity-0 hover:text-studio-danger group-hover:opacity-100",
         )}
       >
-        {confirming ? "Supprimer ?" : <Trash2 className="size-3.5" />}
+        {confirming ? "Delete?" : <Trash2 className="size-3.5" />}
       </button>
     </li>
   );

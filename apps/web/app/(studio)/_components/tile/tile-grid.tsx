@@ -16,7 +16,7 @@ export default function TileGrid({ palette, brush, face }: TileToolProps) {
 
   return (
     <div
-      className="mx-auto grid w-full max-w-65 select-none gap-px rounded-lg bg-studio-line p-px"
+      className="mx-auto grid w-full max-w-65 select-none gap-px bg-studio-line p-px"
       style={{ gridTemplateColumns: `repeat(${width}, minmax(0, 1fr))` }}
       onPointerUp={stop}
       onPointerLeave={stop}
@@ -28,7 +28,7 @@ export default function TileGrid({ palette, brush, face }: TileToolProps) {
           <button
             key={index}
             type="button"
-            aria-label={`Case ${(index % width) + 1}, ${Math.floor(index / width) + 1} : ${getBlock(id)?.name}`}
+            aria-label={`Cell ${(index % width) + 1}, ${Math.floor(index / width) + 1}: ${getBlock(id)?.name}`}
             onPointerDown={(e) => {
               e.preventDefault();
               painting.current = e.button === 2 ? null : brush;
@@ -49,7 +49,7 @@ export default function TileGrid({ palette, brush, face }: TileToolProps) {
               blockId={id}
               face={face}
               size={64}
-              className="h-full! w-full! rounded-none outline-0"
+              className="h-full! w-full! outline-0"
             />
           </button>
         );

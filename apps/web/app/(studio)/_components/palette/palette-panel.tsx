@@ -24,20 +24,18 @@ export default function PalettePanel() {
       <section className="flex flex-col gap-3" aria-labelledby="pattern-title">
         <SectionTitle id="pattern-title">Pattern</SectionTitle>
         <Segmented
-          label="Type de pattern"
+          label="Pattern type"
           value={palette.mode}
           onChange={setMode}
           className="w-full"
           options={[
             {
               value: "random",
-              label: "Aléatoire",
-              title: "Blocs posés au hasard selon leur poids",
+              label: "Random",
             },
             {
               value: "fixed",
-              label: "Fixe",
-              title: "Une tuile qui se répète (sols, frises)",
+              label: "Tile",
             },
           ]}
         />

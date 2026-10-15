@@ -65,8 +65,8 @@ export default function Preview2d({ palette, columns, grid }: Preview2dProps) {
       <canvas
         ref={canvasRef}
         role="img"
-        aria-label={`Aperçu ${palette.surface === "floor" ? "du sol" : "du mur"} : ${columns} × ${rows} blocs`}
-        className="pixelated rounded-md shadow-st-canvas"
+        aria-label={`${palette.surface === "floor" ? "Floor" : "Wall"} preview: ${columns} × ${rows} blocks`}
+        className="pixelated shadow-st-canvas"
       />
     </div>
   );

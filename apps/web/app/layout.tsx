@@ -7,7 +7,7 @@ import { cn } from "@repo/ui/utils/cn";
 export const metadata: Metadata = {
   title: "Palette Studio",
   description:
-    "Palettes de blocs Minecraft : variations, patterns et export WorldEdit",
+    "Minecraft block palettes: variations, patterns and WorldEdit export",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn(dmSans.className, "antialiased")}>
         <Providers>{children}</Providers>
       </body>

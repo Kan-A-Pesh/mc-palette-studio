@@ -16,10 +16,10 @@ export function tilePresets(palette: Palette): TilePreset[] {
       return id === palette.mainBlockId ? null : id;
     });
   return [
-    { label: "Damier", cells: build((x, y) => ((x + y) % 2 ? accent : null)) },
-    { label: "Bandes", cells: build((_x, y) => ids[y % ids.length] ?? null) },
+    { label: "Checker", cells: build((x, y) => ((x + y) % 2 ? accent : null)) },
+    { label: "Stripes", cells: build((_x, y) => ids[y % ids.length] ?? null) },
     {
-      label: "Cadre",
+      label: "Frame",
       cells: build((x, y) =>
         x === 0 || y === 0 || x === width - 1 || y === height - 1
           ? accent
@@ -27,7 +27,7 @@ export function tilePresets(palette: Palette): TilePreset[] {
       ),
     },
     {
-      label: "Depuis les poids",
+      label: "From weights",
       cells: build((x, y) =>
         pickWeighted(palette.entries, cellRandom(x, y, palette.seed)),
       ),

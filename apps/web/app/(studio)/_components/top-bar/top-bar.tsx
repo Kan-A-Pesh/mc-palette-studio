@@ -18,21 +18,19 @@ export default function TopBar() {
         <span className="hidden text-sm font-semibold tracking-tight text-studio-text sm:inline">
           Palette Studio
         </span>
-        <span className="hidden rounded-md bg-studio-raised px-1.5 py-0.5 text-st-xs tabular-nums text-studio-muted md:inline">
+        <span className="hidden bg-studio-raised px-1.5 py-0.5 text-st-xs tabular-nums text-studio-muted md:inline">
           Java {MC_VERSION}
         </span>
       </div>
       <div className="h-6 w-px bg-studio-line" />
       <label className="min-w-0 max-w-xs flex-1">
-        <span className="sr-only">Nom de la palette</span>
+        <span className="sr-only">Palette name</span>
         <input
           value={palette.name}
           maxLength={60}
           onChange={(e) => update({ name: e.target.value })}
-          onBlur={(e) =>
-            !e.target.value.trim() && update({ name: "Sans titre" })
-          }
-          className="h-9 w-full truncate rounded-lg bg-transparent px-2 text-st-lg font-semibold text-studio-text hover:bg-studio-raised focus:bg-studio-canvas focus:outline-none focus:ring-2 focus:ring-studio-accent"
+          onBlur={(e) => !e.target.value.trim() && update({ name: "Untitled" })}
+          className="h-9 w-full truncate bg-transparent px-2 text-st-lg font-semibold text-studio-text hover:bg-studio-raised focus:bg-studio-canvas focus:outline-none focus:ring-2 focus:ring-studio-accent"
         />
       </label>
       <PalettesMenu />

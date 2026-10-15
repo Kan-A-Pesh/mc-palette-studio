@@ -6,7 +6,6 @@ import { cn } from "@repo/ui/utils/cn";
 import { surfaceFace } from "../../_lib/draw/surface-face";
 import {
   QUICK_ADD_COUNT,
-  VARIATION_HINTS,
   VARIATION_MODE_OPTIONS,
 } from "../../_lib/studio-constants";
 import { useStudio } from "../../_lib/studio-store";
@@ -46,22 +45,21 @@ export default function VariationsPanel() {
 
   return (
     <section className="flex flex-col gap-3" aria-labelledby="variations-title">
-      <SectionTitle id="variations-title">Variations suggérées</SectionTitle>
+      <SectionTitle id="variations-title">Variations</SectionTitle>
       <Segmented
-        label="Type de variation"
+        label="Variation type"
         value={mode}
         onChange={setMode}
         className="w-full"
         options={VARIATION_MODE_OPTIONS}
       />
-      <p className="text-xs text-studio-muted">{VARIATION_HINTS[mode]}</p>
       {mode !== "family" && (
         <div className="flex items-center gap-3">
           <span className="w-16 shrink-0 text-xs text-studio-muted">
-            Tolérance
+            Tolerance
           </span>
           <Range
-            label="Tolérance"
+            label="Tolerance"
             value={tolerance}
             min={0}
             max={100}
@@ -74,8 +72,8 @@ export default function VariationsPanel() {
       )}
 
       {suggestions.length === 0 ? (
-        <p className="rounded-lg bg-studio-canvas px-3 py-4 text-center text-xs text-studio-muted">
-          Rien d’assez proche. Augmente la tolérance ou change de type.
+        <p className="bg-studio-canvas px-3 py-4 text-center text-xs text-studio-muted">
+          Nothing close enough.
         </p>
       ) : (
         <ul
@@ -104,7 +102,7 @@ export default function VariationsPanel() {
           className="self-start"
           onClick={addFirst}
         >
-          + Ajouter les {quickAdd.length} premières
+          + Add top {quickAdd.length}
         </StudioButton>
       )}
     </section>

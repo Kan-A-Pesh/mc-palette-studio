@@ -16,7 +16,7 @@ export default function CompositionBar({ palette }: { palette: Palette }) {
 
   return (
     <div className="flex flex-col gap-2 border-t border-studio-line px-4 py-3">
-      <div className="flex h-2 overflow-hidden rounded-full" aria-hidden>
+      <div className="flex h-2 overflow-hidden" aria-hidden>
         {composition.map((e) => (
           <span
             key={e.blockId}
@@ -31,7 +31,7 @@ export default function CompositionBar({ palette }: { palette: Palette }) {
         {composition.map((e) => (
           <li key={e.blockId} className="flex items-center gap-1.5">
             <span
-              className="size-2 rounded-full"
+              className="size-2"
               style={{ background: colorOf(e.blockId) }}
             />
             {getBlock(e.blockId)?.name}

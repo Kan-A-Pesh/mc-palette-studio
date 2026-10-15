@@ -24,7 +24,7 @@ export default function Segmented<T extends string>({
       role="radiogroup"
       aria-label={label}
       className={cn(
-        "inline-flex rounded-lg bg-studio-canvas p-0.5 ring-1 ring-studio-line",
+        "inline-flex bg-studio-canvas p-0.5 ring-1 ring-studio-line",
         className,
       )}
     >
@@ -39,7 +39,7 @@ export default function Segmented<T extends string>({
             title={option.title}
             onClick={() => onChange(option.value)}
             className={cn(
-              "flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-2.5 py-1 text-st-md font-medium transition-colors duration-150",
+              "flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap px-2.5 py-1 text-st-md font-medium transition-colors duration-150",
               "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-studio-accent",
               selected
                 ? "bg-studio-raised text-studio-text shadow-st-ring"

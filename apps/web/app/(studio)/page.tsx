@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Studio from "./_components/studio";
 
 export const metadata: Metadata = {
-  title: "Palette Studio — palettes de blocs Minecraft",
+  title: "Palette Studio — Minecraft block palettes",
   description:
-    "Choisis un bloc principal, récupère ses variations, compose des patterns fixes ou aléatoires et exporte-les pour WorldEdit.",
+    "Build Minecraft block palettes with variations, patterns and WorldEdit export.",
 };
 
 export default function HomePage() {

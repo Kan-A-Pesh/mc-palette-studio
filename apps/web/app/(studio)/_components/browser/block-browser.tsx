@@ -34,7 +34,7 @@ export default function BlockBrowser() {
   return (
     <aside
       className="flex min-h-0 flex-col border-r border-studio-line bg-studio-panel"
-      aria-label="Blocs"
+      aria-label="Blocks"
     >
       <div className="flex flex-col gap-3 border-b border-studio-line p-4">
         <SectionTitle
@@ -44,24 +44,24 @@ export default function BlockBrowser() {
             </span>
           }
         >
-          Blocs
+          Blocks
         </SectionTitle>
         <label className="relative block">
-          <span className="sr-only">Rechercher un bloc</span>
+          <span className="sr-only">Search blocks</span>
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-studio-faint" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="brick, deepslate, oak…"
+            placeholder="Search…"
             spellCheck={false}
-            className="h-9 w-full rounded-lg bg-studio-canvas pl-8 pr-8 text-sm text-studio-text ring-1 ring-studio-line placeholder:text-studio-faint focus:outline-none focus:ring-2 focus:ring-studio-accent"
+            className="h-9 w-full bg-studio-canvas pl-8 pr-8 text-sm text-studio-text ring-1 ring-studio-line placeholder:text-studio-faint focus:outline-none focus:ring-2 focus:ring-studio-accent"
           />
           {query && (
             <button
               type="button"
-              aria-label="Effacer la recherche"
+              aria-label="Clear search"
               onClick={() => setQuery("")}
-              className="absolute right-1.5 top-1/2 grid size-6 -translate-y-1/2 place-items-center rounded-md text-studio-faint hover:text-studio-text"
+              className="absolute right-1.5 top-1/2 grid size-6 -translate-y-1/2 place-items-center text-studio-faint hover:text-studio-text"
             >
               <X className="size-3.5" />
             </button>
@@ -73,8 +73,7 @@ export default function BlockBrowser() {
       <div className="studio-scroll min-h-0 flex-1 overflow-y-auto p-3">
         {results.length === 0 ? (
           <p className="px-2 py-8 text-center text-sm text-studio-muted">
-            Aucun bloc ne correspond à « {query} ». Essaie le nom anglais (ex. «
-            brick »).
+            No blocks found.
           </p>
         ) : (
           <ul className="grid grid-cols-[repeat(auto-fill,minmax(44px,1fr))] gap-1">

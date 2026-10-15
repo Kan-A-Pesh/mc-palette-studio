@@ -12,9 +12,7 @@ export function useCopy() {
       setCopied(key);
       setTimeout(() => setCopied((c) => (c === key ? null : c)), 1500);
     } catch {
-      toast.error(
-        "Copie impossible : sélectionne le texte et copie-le à la main.",
-      );
+      toast.error("Copy failed");
     }
   };
   return { copied, copy };

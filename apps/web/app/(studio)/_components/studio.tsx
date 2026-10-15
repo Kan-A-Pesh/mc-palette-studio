@@ -21,9 +21,9 @@ export default function Studio() {
       const palette = decodeShare(shared);
       if (palette) {
         importPalette(palette);
-        toast.success(`Palette « ${palette.name} » ajoutée à tes palettes.`);
+        toast.success(`Imported “${palette.name}”`);
       } else {
-        toast.error("Ce lien de partage est invalide ou incomplet.");
+        toast.error("Invalid share link");
       }
       url.searchParams.delete("p");
       window.history.replaceState(null, "", url.toString());
@@ -44,7 +44,7 @@ export default function Studio() {
         </>
       ) : (
         <div className="grid flex-1 place-items-center text-sm text-studio-muted">
-          Chargement de tes palettes…
+          Loading…
         </div>
       )}
     </div>

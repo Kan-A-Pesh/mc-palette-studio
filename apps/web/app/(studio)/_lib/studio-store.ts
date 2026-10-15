@@ -186,7 +186,7 @@ export const useStudio = create<StudioState>()(
             createPalette(source.mainBlockId, {
               ...source,
               id: undefined,
-              name: `${source.name} (copie)`,
+              name: `${source.name} (copy)`,
               updatedAt: Date.now(),
             }),
           );

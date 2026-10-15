@@ -151,7 +151,7 @@ describe("exports", () => {
     const tile = createTile(3, 2);
     tile.cells[4] = "granite";
     const palette = createPalette("bricks", {
-      name: "Usine",
+      name: "Factory",
       entries: [
         { blockId: "bricks", weight: 70 },
         { blockId: "granite", weight: 30 },
@@ -163,7 +163,7 @@ describe("exports", () => {
     });
     const decoded = decodeShare(encodeShare(palette));
     expect(decoded).toMatchObject({
-      name: "Usine",
+      name: "Factory",
       mainBlockId: "bricks",
       entries: palette.entries,
       mode: "fixed",

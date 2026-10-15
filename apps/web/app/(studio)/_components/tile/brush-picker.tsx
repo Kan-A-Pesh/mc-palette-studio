@@ -7,23 +7,14 @@ import { useStudio } from "../../_lib/studio-store";
 import BlockTexture from "../shared/block-texture";
 import type { TileToolProps } from "./tile-types";
 
-interface BrushPickerProps extends TileToolProps {
-  usage: Map<string, number>;
-}
-
-export default function BrushPicker({
-  palette,
-  brush,
-  face,
-  usage,
-}: BrushPickerProps) {
+export default function BrushPicker({ palette, brush, face }: TileToolProps) {
   const setBrush = useStudio((s) => s.setBrush);
   const isEraser = brush === palette.mainBlockId;
 
   return (
     <div
       role="radiogroup"
-      aria-label="Pinceau"
+      aria-label="Brush"
       className="flex flex-wrap gap-1.5"
     >
       {palette.entries
@@ -37,11 +28,11 @@ export default function BrushPicker({
               type="button"
               role="radio"
               aria-checked={selected}
-              aria-label={`Pinceau : ${name}`}
-              title={`${name} · ${usage.get(entry.blockId) ?? 0} case(s)`}
+              aria-label={`Brush: ${name}`}
+              title={name}
               onClick={() => setBrush(entry.blockId)}
               className={cn(
-                "rounded-lg p-1 transition-shadow duration-150 focus-visible:outline-2 focus-visible:outline-studio-accent",
+                "p-1 transition-shadow duration-150 focus-visible:outline-2 focus-visible:outline-studio-accent",
                 selected ? "shadow-st-selected" : "hover:bg-studio-raised",
               )}
             >
@@ -53,11 +44,11 @@ export default function BrushPicker({
         type="button"
         role="radio"
         aria-checked={isEraser}
-        aria-label="Gomme : remet le bloc principal"
-        title="Gomme : remet le bloc principal"
+        aria-label="Eraser"
+        title="Eraser"
         onClick={() => setBrush(palette.mainBlockId)}
         className={cn(
-          "grid size-9 place-items-center rounded-lg text-studio-muted hover:bg-studio-raised hover:text-studio-text focus-visible:outline-2 focus-visible:outline-studio-accent",
+          "grid size-9 place-items-center text-studio-muted hover:bg-studio-raised hover:text-studio-text focus-visible:outline-2 focus-visible:outline-studio-accent",
           isEraser && "text-studio-text shadow-st-selected",
         )}
       >

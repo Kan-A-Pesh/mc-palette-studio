@@ -25,7 +25,7 @@ export default function BlockTexture({
     <span
       aria-hidden
       className={cn(
-        "pixelated block shrink-0 rounded-st-tex bg-cover",
+        "pixelated block shrink-0 bg-cover",
         "-outline-offset-1 outline-1 outline-white/10",
         className,
       )}

@@ -33,9 +33,7 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
         `${slugify(palette.name)}.png`,
       );
     } catch {
-      toast.error(
-        "L'image n'a pas pu être générée : les textures n'ont pas chargé.",
-      );
+      toast.error("Could not render the image.");
     } finally {
       setBusy(null);
     }
@@ -59,28 +57,22 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
       <Modal.Trigger asChild>
         <StudioButton variant="primary">
           <Download className="size-4" />
-          Exporter
+          Export
         </StudioButton>
       </Modal.Trigger>
       <Modal.Content
         showClose={false}
+        aria-describedby={undefined}
         overlayClassName="bg-black/60 backdrop-blur-none"
-        className="studio-root studio-dialog flex max-w-160 flex-col rounded-2xl bg-studio-panel text-studio-text shadow-st-dialog"
+        className="studio-root studio-dialog flex max-w-160 flex-col rounded-none bg-studio-panel text-studio-text shadow-st-dialog"
       >
-        <div className="flex items-start justify-between gap-4 border-b border-studio-line p-5">
-          <div>
-            <Modal.Title className="text-lg font-semibold text-studio-text">
-              Exporter « {palette.name} »
-            </Modal.Title>
-            <Modal.Description className="mt-1 text-sm text-studio-muted">
-              {fixed
-                ? "Pattern fixe : charge la tuile en schematic, puis répète-la avec WorldEdit."
-                : "Pattern aléatoire : colle une commande WorldEdit ou FAWE en jeu."}
-            </Modal.Description>
-          </div>
+        <div className="flex items-center justify-between gap-4 border-b border-studio-line p-5">
+          <Modal.Title className="text-lg font-semibold text-studio-text">
+            Export “{palette.name}”
+          </Modal.Title>
           <Modal.Close
-            aria-label="Fermer"
-            className="grid size-8 place-items-center rounded-lg text-studio-muted hover:bg-studio-raised hover:text-studio-text focus-visible:outline-2 focus-visible:outline-studio-accent"
+            aria-label="Close"
+            className="grid size-8 place-items-center text-studio-muted hover:bg-studio-raised hover:text-studio-text focus-visible:outline-2 focus-visible:outline-studio-accent"
           >
             <X className="size-4" />
           </Modal.Close>
@@ -96,7 +88,7 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
                 disabled={busy === "schem"}
               >
                 <FileBox className="size-4" />
-                Télécharger {SCHEMATIC_FILE_NAME}.schem
+                {SCHEMATIC_FILE_NAME}.schem
               </StudioButton>
             )}
             <ol className="flex flex-col gap-3">
@@ -113,7 +105,7 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
           </section>
 
           <section className="flex flex-col gap-3">
-            <SectionTitle>Partager</SectionTitle>
+            <SectionTitle>Share</SectionTitle>
             <div className="flex flex-wrap gap-2">
               <StudioButton onClick={() => copy("link", shareUrl(palette))}>
                 {copied === "link" ? (
@@ -121,17 +113,13 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
                 ) : (
                   <Link2 className="size-4" />
                 )}
-                {copied === "link" ? "Lien copié" : "Copier le lien de partage"}
+                {copied === "link" ? "Copied" : "Copy link"}
               </StudioButton>
               <StudioButton onClick={downloadPng} disabled={busy === "png"}>
                 <ImageDown className="size-4" />
-                {busy === "png" ? "Génération…" : "Télécharger en PNG"}
+                {busy === "png" ? "Rendering…" : "PNG"}
               </StudioButton>
             </div>
-            <p className="text-xs text-studio-muted">
-              Le lien contient toute la palette : la personne qui l’ouvre la
-              retrouve à l’identique, sans compte.
-            </p>
           </section>
         </div>
       </Modal.Content>

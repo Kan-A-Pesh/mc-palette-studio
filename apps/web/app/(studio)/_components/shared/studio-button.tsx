@@ -19,7 +19,7 @@ export default function StudioButton({
       type="button"
       {...props}
       className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-lg font-medium transition duration-150 active:scale-97",
+        "inline-flex items-center justify-center gap-1.5 font-medium transition duration-150 active:scale-97",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-studio-accent",
         "disabled:pointer-events-none disabled:text-studio-faint",
         size === "sm" ? "h-7 px-2.5 text-st-sm" : "h-9 px-3.5 text-sm",
