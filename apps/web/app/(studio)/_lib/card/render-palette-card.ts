@@ -93,8 +93,7 @@ export async function renderPaletteCard(palette: Palette): Promise<Blob> {
 
   return new Promise((resolve, reject) =>
     canvas.toBlob(
-      (blob) =>
-        blob ? resolve(blob) : reject(new Error("Export PNG impossible")),
+      (blob) => (blob ? resolve(blob) : reject(new Error("PNG export failed"))),
       "image/png",
     ),
   );

@@ -7,7 +7,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
     const img = new Image();
     img.crossOrigin = "anonymous";
     img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error(`Texture introuvable : ${src}`));
+    img.onerror = () => reject(new Error(`Texture not found: ${src}`));
     img.src = src;
   });
 }

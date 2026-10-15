@@ -5,7 +5,7 @@ export function createCanvas(width: number, height: number) {
     height,
   });
   const ctx = canvas.getContext("2d");
-  if (!ctx) throw new Error("Canvas 2D indisponible");
+  if (!ctx) throw new Error("Canvas 2D unavailable");
   ctx.imageSmoothingEnabled = false;
   return { canvas, ctx };
 }

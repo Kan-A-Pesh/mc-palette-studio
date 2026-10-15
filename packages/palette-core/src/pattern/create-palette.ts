@@ -7,7 +7,7 @@ export function createPalette(
 ): Palette {
   return {
     id: init.id ?? Math.random().toString(36).slice(2, 10),
-    name: init.name ?? "Nouvelle palette",
+    name: init.name ?? "New palette",
     mainBlockId,
     entries: init.entries ?? [{ blockId: mainBlockId, weight: 60 }],
     mode: init.mode ?? "random",
