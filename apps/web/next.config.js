@@ -6,6 +6,7 @@ const nextConfig = {
     "@repo/env",
     "@repo/realtime",
     "@repo/server",
+    "@repo/palette-core",
   ],
 };
 

@@ -6,6 +6,8 @@ const typographyConfig = {
   paragraph: ["xl", "lg", "md", "sm", "xs"],
   subheading: ["md", "sm", "xs", "2xs"],
   doc: ["label", "paragraph"],
+  // Palette Studio sizes (apps/web globals.css `--text-st-*`)
+  st: ["2xs", "xs", "sm", "md", "lg"],
 };
 
 const typographyPatterns = Object.entries(typographyConfig).flatMap(

@@ -162,8 +162,7 @@ function textureStats(png, tint) {
   if (!opaque) return null;
   const lab = sum.map((s) => s / opaque);
   const mean = lightness.reduce((a, b) => a + b, 0) / opaque;
-  const variance =
-    lightness.reduce((a, l) => a + (l - mean) ** 2, 0) / opaque;
+  const variance = lightness.reduce((a, l) => a + (l - mean) ** 2, 0) / opaque;
   const avg = rgbSum.map((s) => Math.round(s / opaque));
   const round = (v) => Math.round(v * 10) / 10;
   return {
@@ -240,7 +239,11 @@ async function main() {
     }
   }
   const pngs = new Map();
-  const uniqueTextures = [...new Set(described.flatMap((b) => Object.values(b.faces).map((f) => f.texture)))];
+  const uniqueTextures = [
+    ...new Set(
+      described.flatMap((b) => Object.values(b.faces).map((f) => f.texture)),
+    ),
+  ];
   await mapLimit(uniqueTextures, 24, async (texture) => {
     pngs.set(texture, await fetchPng(texture));
   });

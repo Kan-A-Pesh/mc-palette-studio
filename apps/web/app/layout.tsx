@@ -5,8 +5,9 @@ import { Providers } from "./providers";
 import { cn } from "@repo/ui/utils/cn";
 
 export const metadata: Metadata = {
-  title: "Next.js turborepo template",
-  description: "A template for a Next.js project with Better Auth and Drizzle",
+  title: "Palette Studio",
+  description:
+    "Palettes de blocs Minecraft : variations, patterns et export WorldEdit",
 };
 
 export default function RootLayout({
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className={cn(dmSans.className, "antialiased")}>
         <Providers>{children}</Providers>
       </body>
