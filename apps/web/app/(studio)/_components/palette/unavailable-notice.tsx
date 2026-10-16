@@ -1,9 +1,8 @@
 "use client";
 
 import { TriangleAlert } from "lucide-react";
-import type { Palette } from "@repo/palette-core";
+import { unavailableBlocks, type Palette } from "@repo/palette-core";
 import { useStudio } from "../../_lib/studio-store";
-import { unavailableBlocks } from "../../_lib/unavailable-blocks";
 import StudioButton from "../shared/studio-button";
 
 /** Lists the palette's blocks that do not exist in its Java release. */
@@ -37,7 +36,7 @@ export default function UnavailableNotice({ palette }: { palette: Palette }) {
           className="self-start"
           onClick={removeUnavailable}
         >
-          Remove {removable.length} from the mix
+          Remove {removable.length} from the palette
         </StudioButton>
       )}
     </section>

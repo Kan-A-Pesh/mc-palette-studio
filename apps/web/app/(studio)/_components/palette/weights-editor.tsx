@@ -1,7 +1,10 @@
 "use client";
 
-import { toPercentages, type Palette } from "@repo/palette-core";
-import { unavailableBlocks } from "../../_lib/unavailable-blocks";
+import {
+  toPercentages,
+  unavailableBlocks,
+  type Palette,
+} from "@repo/palette-core";
 import WeightRow from "./weight-row";
 
 export default function WeightsEditor({ palette }: { palette: Palette }) {

@@ -4,8 +4,6 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import {
   createPalette,
-  getBlock,
-  isAvailable,
   LATEST_VERSION,
   MAX_TILE_SIZE,
   resizeTile,
@@ -13,6 +11,7 @@ import {
   type PatternMode,
   type Surface,
   type VariationMode,
+  withoutUnavailable,
 } from "@repo/palette-core";
 import {
   DEFAULT_WEIGHT,
@@ -42,7 +41,7 @@ interface StudioState {
   setWeight: (blockId: string, weight: number) => void;
   removeEntry: (blockId: string) => void;
   setVersion: (version: string) => void;
-  /** Drops the mix blocks the palette's release does not have. */
+  /** Drops the blocks the palette's release lacks, except the main one. */
   removeUnavailable: () => void;
   setMode: (mode: PatternMode) => void;
   setSurface: (surface: Surface) => void;
@@ -176,30 +175,7 @@ export const useStudio = create<StudioState>()(
           ),
 
         setVersion: (version) => update({ version }),
-        removeUnavailable: () =>
-          update((p) => {
-            const missing = new Set(
-              p.entries
-                .map((e) => e.blockId)
-                .filter((id) => {
-                  const block = getBlock(id);
-                  return (
-                    id !== p.mainBlockId &&
-                    block &&
-                    !isAvailable(block, p.version)
-                  );
-                }),
-            );
-            return {
-              entries: p.entries.filter((e) => !missing.has(e.blockId)),
-              tile: {
-                ...p.tile,
-                cells: p.tile.cells.map((c) =>
-                  c && missing.has(c) ? null : c,
-                ),
-              },
-            };
-          }),
+        removeUnavailable: () => update(withoutUnavailable),
 
         setMode: (mode) => update({ mode }),
         setSurface: (surface) => update({ surface }),

@@ -6,3 +6,5 @@ export * from "./pick-weighted";
 export * from "./block-at";
 export * from "./generate-grid";
 export * from "./to-percentages";
+export * from "./unavailable-blocks";
+export * from "./without-unavailable";

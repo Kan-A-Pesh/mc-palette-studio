@@ -18,6 +18,8 @@ import {
   sameFamily,
   similarByColor,
   toPercentages,
+  unavailableBlocks,
+  withoutUnavailable,
   worldEditPattern,
 } from "./index";
 
@@ -89,6 +91,42 @@ describe("game versions", () => {
       id: "1.20.1",
       dataVersion: 3465,
     });
+  });
+
+  it("finds and drops unavailable blocks in the mix and the tile", async () => {
+    const tile = createTile(2, 1);
+    // Painted, then removed from the mix: the cell keeps the block.
+    tile.cells[0] = "mud_bricks";
+    tile.cells[1] = "granite";
+    const palette = createPalette("packed_mud", {
+      mode: "fixed",
+      version: "1.18.2",
+      entries: [
+        { blockId: "packed_mud", weight: 50 },
+        { blockId: "granite", weight: 30 },
+        { blockId: "tuff", weight: 20 },
+      ],
+      tile,
+    });
+    const ids = (p: typeof palette) =>
+      unavailableBlocks(p)
+        .map((b) => b.id)
+        .sort();
+    expect(ids(palette)).toEqual(["mud_bricks", "packed_mud"]);
+
+    const cleaned = { ...palette, ...withoutUnavailable(palette) };
+    // The main block stays until the user picks another one.
+    expect(ids(cleaned)).toEqual(["packed_mud"]);
+    expect(cleaned.entries.map((e) => e.blockId)).toEqual([
+      "packed_mud",
+      "granite",
+      "tuff",
+    ]);
+    expect(cleaned.tile.cells).toEqual([null, "granite"]);
+    const nbt = new TextDecoder("latin1").decode(
+      gunzipSync(await encodeSchematic(cleaned)),
+    );
+    expect(nbt).not.toContain("minecraft:mud_bricks");
   });
 
   it("only suggests blocks of the palette's release", () => {
