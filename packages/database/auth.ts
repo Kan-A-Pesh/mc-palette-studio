@@ -168,20 +168,23 @@ export const auth = betterAuth({
     }),
     nextCookies(),
   ],
-  secondaryStorage: {
-    get: async (key) => await redis.get(key),
-    set: async (key, value, ttl) => {
-      if (ttl) {
-        await redis.set(key, value, "EX", ttl);
-      } else {
-        await redis.set(key, value);
+  // Without REDIS_URL, Better Auth keeps sessions in the database only.
+  secondaryStorage: env.REDIS_URL
+    ? {
+        get: async (key) => await redis.get(key),
+        set: async (key, value, ttl) => {
+          if (ttl) {
+            await redis.set(key, value, "EX", ttl);
+          } else {
+            await redis.set(key, value);
+          }
+        },
+        delete: async (key) => {
+          await redis.del(key);
+          return;
+        },
       }
-    },
-    delete: async (key) => {
-      await redis.del(key);
-      return;
-    },
-  },
+    : undefined,
   user: {
     additionalFields: {
       phone: {
