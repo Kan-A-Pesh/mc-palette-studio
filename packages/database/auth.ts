@@ -1,4 +1,5 @@
 import "@repo/env/load-env";
+import { randomBytes } from "node:crypto";
 import { betterAuth } from "better-auth/minimal";
 import { nextCookies } from "better-auth/next-js";
 import {
@@ -27,6 +28,9 @@ export { ac, roles };
 
 export const auth = betterAuth({
   appName: PROJECT.NAME,
+  // Without BETTER_AUTH_SECRET the app still boots: a random per-process
+  // secret keeps sessions unforgeable (they just don't survive a restart).
+  secret: env.BETTER_AUTH_SECRET ?? randomBytes(32).toString("hex"),
   baseURL: BASE_URL,
   trustedOrigins: [BASE_URL],
   database: drizzleAdapter(db, {
@@ -112,7 +116,7 @@ export const auth = betterAuth({
     }),
     stripe({
       stripeClient,
-      stripeWebhookSecret: env.STRIPE_WEBHOOK_SECRET,
+      stripeWebhookSecret: env.STRIPE_WEBHOOK_SECRET ?? "",
       createCustomerOnSignUp: true,
       subscription: {
         getCheckoutSessionParams: () => {

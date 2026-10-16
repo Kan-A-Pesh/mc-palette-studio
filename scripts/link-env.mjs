@@ -44,6 +44,12 @@ for (const appName of appDirectories) {
       // Ignore if doesn't exist
     }
 
+    // A dangling symlink makes `next build` crash (ENOENT), so only link
+    // env files that exist at the root: the app runs without any.
+    if (!fs.existsSync(path.join(monorepoRoot, file))) {
+      continue;
+    }
+
     try {
       fs.symlinkSync(relativePath, target, "file");
       console.log(`✓ [apps/${appName}] Linked ${file} → ${relativePath}`);
