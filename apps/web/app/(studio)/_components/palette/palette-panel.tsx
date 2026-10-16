@@ -39,7 +39,7 @@ export default function PalettePanel() {
   if (picker) {
     return (
       <aside
-        className="flex min-h-0 flex-col border-l border-studio-line bg-studio-panel"
+        className="flex min-h-0 flex-col border-r border-studio-line bg-studio-panel"
         aria-label="Blocks"
       >
         <BlockBrowser purpose={picker} />
@@ -50,7 +50,7 @@ export default function PalettePanel() {
   return (
     <aside
       ref={panelRef}
-      className="studio-scroll flex min-h-0 flex-col gap-6 overflow-y-auto border-l border-studio-line bg-studio-panel p-4"
+      className="studio-scroll flex min-h-0 flex-col gap-6 overflow-y-auto border-r border-studio-line bg-studio-panel p-4"
       aria-label="Palette"
     >
       <MainBlockCard
