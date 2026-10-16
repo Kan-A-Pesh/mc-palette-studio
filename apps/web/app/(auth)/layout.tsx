@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { PAGES } from "@/constants/pages";
@@ -5,6 +6,10 @@ import { getServerSession } from "@/lib/auth/get-server-session";
 
 import Footer from "./_components/footer";
 import Header from "./_components/header";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+};
 
 export default async function RootLayout({
   children,

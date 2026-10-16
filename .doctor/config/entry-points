@@ -46,3 +46,11 @@ packages/realtime/src/**/*.tsx
 # Drizzle config + migrations
 packages/database/drizzle.config.ts
 packages/database/migrations/**/*.sql
+
+# Next.js metadata file conventions
+apps/web/app/**/opengraph-image.tsx
+apps/web/app/**/twitter-image.tsx
+apps/web/app/**/apple-icon.tsx
+apps/web/app/manifest.ts
+apps/web/app/robots.ts
+apps/web/app/sitemap.ts
