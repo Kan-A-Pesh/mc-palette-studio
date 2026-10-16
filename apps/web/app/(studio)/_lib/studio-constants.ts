@@ -1,5 +1,5 @@
 import type { Category, VariationMode } from "@repo/palette-core";
-import type { PreviewView } from "./preview-types";
+import type { PreviewView } from "./preview/preview-types";
 import type { PickerPurpose } from "./studio-store";
 
 /** Weight given to a block when it joins a palette. */

@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import type { Palette } from "@repo/palette-core";
-import { blockMaterial } from "../../_lib/block-material";
-import { buildCorner } from "../../_lib/build-corner";
-import { fitOrthographic } from "../../_lib/fit-orthographic";
-import { gridLines } from "../../_lib/grid-lines";
-import type { PreviewView } from "../../_lib/preview-types";
+import { blockMaterial } from "../../_lib/preview/block-material";
+import { buildCorner } from "../../_lib/preview/build-corner";
+import { fitOrthographic } from "../../_lib/preview/fit-orthographic";
+import { gridLines } from "../../_lib/preview/grid-lines";
+import type { PreviewView } from "../../_lib/preview/preview-types";
 import { PREVIEW_ARIA_LABELS } from "../../_lib/studio-constants";
 import { loadFaces } from "../../_lib/textures/load-faces";
-import { wallHeight } from "../../_lib/wall-height";
+import { wallHeight } from "../../_lib/preview/wall-height";
 
 export interface Preview3dProps {
   palette: Palette;

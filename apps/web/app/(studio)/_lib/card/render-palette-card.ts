@@ -10,7 +10,7 @@ import { prepareFaces } from "../draw/prepare-faces";
 import { CARD_STYLE } from "../studio-constants";
 import { createCanvas } from "../textures/create-canvas";
 import { loadFaces } from "../textures/load-faces";
-import { wallHeight } from "../wall-height";
+import { wallHeight } from "../preview/wall-height";
 
 const SWATCH = 48;
 const ROW = 64;
