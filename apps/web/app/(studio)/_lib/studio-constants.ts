@@ -1,4 +1,5 @@
 import type { Category, VariationMode } from "@repo/palette-core";
+import type { PickerPurpose } from "./studio-store";
 
 /** Weight given to a block when it joins a palette. */
 export const DEFAULT_WEIGHT = 20;
@@ -56,4 +57,10 @@ export const CARD_STYLE = {
   background: "#14161b",
   text: "#eef0f4",
   muted: "#9aa1ad",
+};
+
+/** Heading of the sidebar's block picker, by why it was opened. */
+export const PICKER_TITLES: Record<PickerPurpose, string> = {
+  main: "Choose the main block",
+  add: "Add blocks",
 };

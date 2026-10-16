@@ -3,16 +3,12 @@
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { ArrowLeft, Search, X } from "lucide-react";
 import { BLOCKS, isAvailable, type Category } from "@repo/palette-core";
+import { PICKER_TITLES } from "../../_lib/studio-constants";
 import { useStudio, type PickerPurpose } from "../../_lib/studio-store";
 import { useActivePalette } from "../../_lib/use-active-palette";
 import SectionTitle from "../shared/section-title";
 import BlockCell from "./block-cell";
 import CategoryFilter from "./category-filter";
-
-const TITLES: Record<PickerPurpose, string> = {
-  main: "Choose the main block",
-  add: "Add blocks",
-};
 
 /** The sidebar's block picker; Escape or the back arrow return to the palette. */
 export default function BlockBrowser({ purpose }: { purpose: PickerPurpose }) {
@@ -67,7 +63,7 @@ export default function BlockBrowser({ purpose }: { purpose: PickerPurpose }) {
                 </span>
               }
             >
-              {TITLES[purpose]}
+              {PICKER_TITLES[purpose]}
             </SectionTitle>
           </div>
         </div>
