@@ -1,18 +1,34 @@
 "use client";
 
 import { cn } from "@repo/ui/utils/cn";
-import { useStudio } from "../../_lib/studio-store";
+import { useStudio, type PickerPurpose } from "../../_lib/studio-store";
 import type { BlockChoiceProps } from "../shared/block-choice-types";
 import BlockTexture from "../shared/block-texture";
 
-/** Click sets the main block; the corner badge adds or removes it from the mix. */
+interface BlockCellProps extends BlockChoiceProps {
+  purpose: PickerPurpose;
+}
+
+/**
+ * Picking the main block sets it and returns to the palette; adding toggles
+ * the block in the mix and stays, so several can be added in a row.
+ */
 export default function BlockCell({
   block,
   isMain,
   selected,
-}: BlockChoiceProps) {
+  purpose,
+}: BlockCellProps) {
   const setMainBlock = useStudio((s) => s.setMainBlock);
   const toggleEntry = useStudio((s) => s.toggleEntry);
+  const closePicker = useStudio((s) => s.closePicker);
+  const pick = () => {
+    if (purpose === "add") return toggleEntry(block.id);
+    setMainBlock(block.id);
+    closePicker();
+  };
+
+  const adding = purpose === "add";
 
   return (
     <li className="group relative">
@@ -20,7 +36,9 @@ export default function BlockCell({
         type="button"
         title={block.name}
         aria-label={`${block.name}${isMain ? " (main block)" : ""}`}
-        onClick={() => setMainBlock(block.id)}
+        aria-pressed={adding && !isMain ? selected : undefined}
+        disabled={adding && isMain}
+        onClick={pick}
         className={cn(
           "grid aspect-square w-full place-items-center p-1 transition duration-150",
           "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-studio-accent",
@@ -34,7 +52,15 @@ export default function BlockCell({
           className="aspect-square h-auto! w-full!"
         />
       </button>
-      {!isMain && (
+      {!isMain && adding && selected && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -right-1 -top-1 grid size-5 place-items-center bg-studio-accent text-st-md font-semibold leading-none text-studio-accent-ink"
+        >
+          ✓
+        </span>
+      )}
+      {!isMain && !adding && (
         <button
           type="button"
           aria-label={

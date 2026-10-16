@@ -1,9 +1,12 @@
 "use client";
 
+import { Plus } from "lucide-react";
 import { useStudio } from "../../_lib/studio-store";
 import { useActivePalette } from "../../_lib/use-active-palette";
+import BlockBrowser from "../browser/block-browser";
 import SectionTitle from "../shared/section-title";
 import Segmented from "../shared/segmented";
+import StudioButton from "../shared/studio-button";
 import MainBlockCard from "./main-block-card";
 import TileEditor from "../tile/tile-editor";
 import UnavailableNotice from "./unavailable-notice";
@@ -13,18 +16,48 @@ import WeightsEditor from "./weights-editor";
 export default function PalettePanel() {
   const palette = useActivePalette();
   const setMode = useStudio((s) => s.setMode);
+  const picker = useStudio((s) => s.picker);
+  const openPicker = useStudio((s) => s.openPicker);
+
+  if (picker) {
+    return (
+      <aside
+        className="flex min-h-0 flex-col border-l border-studio-line bg-studio-panel"
+        aria-label="Blocks"
+      >
+        <BlockBrowser purpose={picker} />
+      </aside>
+    );
+  }
 
   return (
     <aside
       className="studio-scroll flex min-h-0 flex-col gap-6 overflow-y-auto border-l border-studio-line bg-studio-panel p-4"
       aria-label="Palette"
     >
-      <MainBlockCard blockId={palette.mainBlockId} />
+      <MainBlockCard
+        blockId={palette.mainBlockId}
+        onChange={() => openPicker("main")}
+      />
       <UnavailableNotice palette={palette} />
       <VariationsPanel />
       <div className="h-px shrink-0 bg-studio-line" />
       <section className="flex flex-col gap-3" aria-labelledby="pattern-title">
-        <SectionTitle id="pattern-title">Pattern</SectionTitle>
+        <SectionTitle
+          id="pattern-title"
+          aside={
+            <StudioButton
+              size="sm"
+              variant="ghost"
+              onClick={() => openPicker("add")}
+            >
+              <Plus className="size-3.5" />
+              Add block
+            </StudioButton>
+          }
+        >
+          Pattern
+        </SectionTitle>
         <Segmented
           label="Pattern type"
           value={palette.mode}
