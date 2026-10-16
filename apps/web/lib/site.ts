@@ -1,6 +1,8 @@
+import { PROJECT } from "@repo/env/constants";
+
 /** Name, URL and copy shared by metadata, the share images and JSON-LD. */
 export const SITE = {
-  NAME: "Palette Studio",
+  NAME: PROJECT.NAME,
   URL: "https://palette.kan-a-pesh.fr",
   TITLE: "Palette Studio – Minecraft Block Palette Generator",
   DESCRIPTION:
