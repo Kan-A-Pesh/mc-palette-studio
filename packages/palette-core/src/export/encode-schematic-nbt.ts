@@ -1,4 +1,3 @@
-import { SCHEMATIC_DATA_VERSION } from "./export-constants";
 import { NbtWriter } from "./nbt-writer";
 import type { SchematicLayout } from "./tile-layout";
 
@@ -11,8 +10,14 @@ function varint(value: number, out: number[]) {
   out.push(v);
 }
 
-/** Uncompressed NBT of a Sponge schematic v2. */
-export function encodeSchematicNbt(layout: SchematicLayout): Uint8Array {
+/**
+ * Uncompressed NBT of a Sponge schematic v2. `dataVersion` is the target
+ * release's: WorldEdit refuses schematics newer than the server.
+ */
+export function encodeSchematicNbt(
+  layout: SchematicLayout,
+  dataVersion: number,
+): Uint8Array {
   const palette = new Map<string, number>();
   const data: number[] = [];
   for (let y = 0; y < layout.height; y++) {
@@ -29,7 +34,7 @@ export function encodeSchematicNbt(layout: SchematicLayout): Uint8Array {
   const nbt = new NbtWriter();
   nbt.beginCompound("Schematic");
   nbt.int("Version", 2);
-  nbt.int("DataVersion", SCHEMATIC_DATA_VERSION);
+  nbt.int("DataVersion", dataVersion);
   nbt.short("Width", layout.width);
   nbt.short("Height", layout.height);
   nbt.short("Length", layout.length);

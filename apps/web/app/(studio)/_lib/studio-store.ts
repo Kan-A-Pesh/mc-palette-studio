@@ -4,6 +4,9 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import {
   createPalette,
+  getBlock,
+  isAvailable,
+  LATEST_VERSION,
   MAX_TILE_SIZE,
   resizeTile,
   type Palette,
@@ -38,6 +41,9 @@ interface StudioState {
   toggleEntry: (blockId: string) => void;
   setWeight: (blockId: string, weight: number) => void;
   removeEntry: (blockId: string) => void;
+  setVersion: (version: string) => void;
+  /** Drops the mix blocks the palette's release does not have. */
+  removeUnavailable: () => void;
   setMode: (mode: PatternMode) => void;
   setSurface: (surface: Surface) => void;
   reseed: () => void;
@@ -58,6 +64,22 @@ interface StudioState {
   setShowGrid: (show: boolean) => void;
   setBrush: (blockId: string | null) => void;
 }
+
+type PersistedState = Pick<
+  StudioState,
+  | "palettes"
+  | "activeId"
+  | "variationMode"
+  | "tolerance"
+  | "previewMode"
+  | "previewSize"
+  | "showGrid"
+>;
+
+/** What version 1 of the store wrote to localStorage. */
+type PersistedStateV1 = Omit<PersistedState, "palettes"> & {
+  palettes: Record<string, Omit<Palette, "version"> & { version?: string }>;
+};
 
 const starterPalette = () =>
   createPalette(STARTER_PALETTE.mainBlockId, {
@@ -153,6 +175,32 @@ export const useStudio = create<StudioState>()(
                 },
           ),
 
+        setVersion: (version) => update({ version }),
+        removeUnavailable: () =>
+          update((p) => {
+            const missing = new Set(
+              p.entries
+                .map((e) => e.blockId)
+                .filter((id) => {
+                  const block = getBlock(id);
+                  return (
+                    id !== p.mainBlockId &&
+                    block &&
+                    !isAvailable(block, p.version)
+                  );
+                }),
+            );
+            return {
+              entries: p.entries.filter((e) => !missing.has(e.blockId)),
+              tile: {
+                ...p.tile,
+                cells: p.tile.cells.map((c) =>
+                  c && missing.has(c) ? null : c,
+                ),
+              },
+            };
+          }),
+
         setMode: (mode) => update({ mode }),
         setSurface: (surface) => update({ surface }),
         reseed: () =>
@@ -220,8 +268,19 @@ export const useStudio = create<StudioState>()(
     },
     {
       name: "palette-studio",
-      version: 1,
-      partialize: (s) => ({
+      version: 2,
+      // v1 palettes predate game versions: they target the latest release.
+      migrate: (persisted) => {
+        const state = persisted as PersistedStateV1;
+        const palettes = Object.fromEntries(
+          Object.entries(state.palettes).map(([id, p]) => [
+            id,
+            { ...p, version: p.version ?? LATEST_VERSION },
+          ]),
+        );
+        return { ...state, palettes };
+      },
+      partialize: (s): PersistedState => ({
         palettes: s.palettes,
         activeId: s.activeId,
         variationMode: s.variationMode,

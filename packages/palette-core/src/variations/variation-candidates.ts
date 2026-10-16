@@ -1,4 +1,4 @@
-import { BLOCKS, GLAZED_FAMILY, type BlockInfo } from "../catalog";
+import { BLOCKS, GLAZED_FAMILY, isAvailable, type BlockInfo } from "../catalog";
 import type { VariationOptions } from "./variation-types";
 
 // Workstations, ores, light sources and glazed terracotta have strong,
@@ -18,6 +18,7 @@ export function variationCandidates(
   return catalog.filter(
     (b) =>
       b.id !== base.id &&
+      (!options.version || isAvailable(b, options.version)) &&
       (options.includeTransparent || base.transparent || !b.transparent) &&
       (isDecorative(base) || !isDecorative(b)),
   );

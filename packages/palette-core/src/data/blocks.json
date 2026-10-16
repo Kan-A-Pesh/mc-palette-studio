@@ -1,8 +1,59 @@
 {
-  "version": "1.21.11",
+  "version": "26.3",
+  "versions": [
+    { "id": "26.3", "dataVersion": 5023 },
+    { "id": "26.2", "dataVersion": 4903 },
+    { "id": "26.1.2", "dataVersion": 4790 },
+    { "id": "26.1.1", "dataVersion": 4788 },
+    { "id": "26.1", "dataVersion": 4786 },
+    { "id": "1.21.11", "dataVersion": 4671 },
+    { "id": "1.21.10", "dataVersion": 4556 },
+    { "id": "1.21.9", "dataVersion": 4554 },
+    { "id": "1.21.8", "dataVersion": 4440 },
+    { "id": "1.21.7", "dataVersion": 4438 },
+    { "id": "1.21.6", "dataVersion": 4435 },
+    { "id": "1.21.5", "dataVersion": 4325 },
+    { "id": "1.21.4", "dataVersion": 4189 },
+    { "id": "1.21.3", "dataVersion": 4082 },
+    { "id": "1.21.2", "dataVersion": 4080 },
+    { "id": "1.21.1", "dataVersion": 3955 },
+    { "id": "1.21", "dataVersion": 3953 },
+    { "id": "1.20.6", "dataVersion": 3839 },
+    { "id": "1.20.5", "dataVersion": 3837 },
+    { "id": "1.20.4", "dataVersion": 3700 },
+    { "id": "1.20.3", "dataVersion": 3698 },
+    { "id": "1.20.2", "dataVersion": 3578 },
+    { "id": "1.20.1", "dataVersion": 3465 },
+    { "id": "1.20", "dataVersion": 3463 },
+    { "id": "1.19.4", "dataVersion": 3337 },
+    { "id": "1.19.3", "dataVersion": 3218 },
+    { "id": "1.19.2", "dataVersion": 3120 },
+    { "id": "1.19.1", "dataVersion": 3117 },
+    { "id": "1.19", "dataVersion": 3105 },
+    { "id": "1.18.2", "dataVersion": 2975 },
+    { "id": "1.18.1", "dataVersion": 2865 },
+    { "id": "1.18", "dataVersion": 2860 },
+    { "id": "1.17.1", "dataVersion": 2730 },
+    { "id": "1.17", "dataVersion": 2724 },
+    { "id": "1.16.5", "dataVersion": 2586 },
+    { "id": "1.16.4", "dataVersion": 2584 },
+    { "id": "1.16.3", "dataVersion": 2580 },
+    { "id": "1.16.2", "dataVersion": 2578 },
+    { "id": "1.16.1", "dataVersion": 2567 },
+    { "id": "1.16", "dataVersion": 2566 },
+    { "id": "1.15.2", "dataVersion": 2230 },
+    { "id": "1.15.1", "dataVersion": 2227 },
+    { "id": "1.15", "dataVersion": 2225 },
+    { "id": "1.14.4", "dataVersion": 1976 },
+    { "id": "1.14.3", "dataVersion": 1968 },
+    { "id": "1.14.2", "dataVersion": 1963 },
+    { "id": "1.14.1", "dataVersion": 1957 },
+    { "id": "1.14", "dataVersion": 1952 }
+  ],
   "blocks": [
     {
       "id": "acacia_leaves",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/acacia_leaves",
@@ -35,6 +86,7 @@
     },
     {
       "id": "acacia_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/acacia_log_top",
@@ -64,6 +116,7 @@
     },
     {
       "id": "acacia_planks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/acacia_planks",
@@ -93,6 +146,7 @@
     },
     {
       "id": "acacia_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/acacia_log",
@@ -122,6 +176,7 @@
     },
     {
       "id": "amethyst_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/amethyst_block",
@@ -151,6 +206,7 @@
     },
     {
       "id": "ancient_debris",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/ancient_debris_top",
@@ -180,6 +236,7 @@
     },
     {
       "id": "andesite",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/andesite",
@@ -209,6 +266,7 @@
     },
     {
       "id": "azalea_leaves",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/azalea_leaves",
@@ -238,6 +296,7 @@
     },
     {
       "id": "bamboo_block",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/bamboo_block",
@@ -267,6 +326,7 @@
     },
     {
       "id": "bamboo_mosaic",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/bamboo_mosaic",
@@ -296,6 +356,7 @@
     },
     {
       "id": "bamboo_planks",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/bamboo_planks",
@@ -325,6 +386,7 @@
     },
     {
       "id": "barrel",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/barrel_top",
@@ -354,6 +416,7 @@
     },
     {
       "id": "basalt",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/basalt_top",
@@ -383,6 +446,7 @@
     },
     {
       "id": "bedrock",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/bedrock",
@@ -412,6 +476,7 @@
     },
     {
       "id": "bee_nest",
+      "since": "1.15",
       "faces": {
         "top": {
           "texture": "block/bee_nest_top",
@@ -441,6 +506,7 @@
     },
     {
       "id": "beehive",
+      "since": "1.15",
       "faces": {
         "top": {
           "texture": "block/beehive_end",
@@ -470,6 +536,7 @@
     },
     {
       "id": "birch_leaves",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/birch_leaves",
@@ -502,6 +569,7 @@
     },
     {
       "id": "birch_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/birch_log_top",
@@ -531,6 +599,7 @@
     },
     {
       "id": "birch_planks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/birch_planks",
@@ -560,6 +629,7 @@
     },
     {
       "id": "birch_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/birch_log",
@@ -589,6 +659,7 @@
     },
     {
       "id": "black_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/black_concrete",
@@ -618,6 +689,7 @@
     },
     {
       "id": "black_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/black_concrete_powder",
@@ -647,6 +719,7 @@
     },
     {
       "id": "black_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/black_glazed_terracotta",
@@ -676,6 +749,7 @@
     },
     {
       "id": "black_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/black_stained_glass",
@@ -705,6 +779,7 @@
     },
     {
       "id": "black_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/black_terracotta",
@@ -734,6 +809,7 @@
     },
     {
       "id": "black_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/black_wool",
@@ -763,6 +839,7 @@
     },
     {
       "id": "blackstone",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/blackstone_top",
@@ -792,6 +869,7 @@
     },
     {
       "id": "blast_furnace",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blast_furnace_top",
@@ -821,6 +899,7 @@
     },
     {
       "id": "blue_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_concrete",
@@ -850,6 +929,7 @@
     },
     {
       "id": "blue_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_concrete_powder",
@@ -879,6 +959,7 @@
     },
     {
       "id": "blue_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_glazed_terracotta",
@@ -908,6 +989,7 @@
     },
     {
       "id": "blue_ice",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_ice",
@@ -937,6 +1019,7 @@
     },
     {
       "id": "blue_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_stained_glass",
@@ -966,6 +1049,7 @@
     },
     {
       "id": "blue_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_terracotta",
@@ -995,6 +1079,7 @@
     },
     {
       "id": "blue_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/blue_wool",
@@ -1024,6 +1109,7 @@
     },
     {
       "id": "bone_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/bone_block_top",
@@ -1053,6 +1139,7 @@
     },
     {
       "id": "bookshelf",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/oak_planks",
@@ -1082,6 +1169,7 @@
     },
     {
       "id": "brain_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brain_coral_block",
@@ -1111,6 +1199,7 @@
     },
     {
       "id": "bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/bricks",
@@ -1140,6 +1229,7 @@
     },
     {
       "id": "brown_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brown_concrete",
@@ -1169,6 +1259,7 @@
     },
     {
       "id": "brown_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brown_concrete_powder",
@@ -1198,6 +1289,7 @@
     },
     {
       "id": "brown_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brown_glazed_terracotta",
@@ -1227,6 +1319,7 @@
     },
     {
       "id": "brown_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brown_stained_glass",
@@ -1256,6 +1349,7 @@
     },
     {
       "id": "brown_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brown_terracotta",
@@ -1285,6 +1379,7 @@
     },
     {
       "id": "brown_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/brown_wool",
@@ -1314,6 +1409,7 @@
     },
     {
       "id": "bubble_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/bubble_coral_block",
@@ -1343,6 +1439,7 @@
     },
     {
       "id": "calcite",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/calcite",
@@ -1372,6 +1469,7 @@
     },
     {
       "id": "cartography_table",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cartography_table_top",
@@ -1401,6 +1499,7 @@
     },
     {
       "id": "carved_pumpkin",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pumpkin_top",
@@ -1430,6 +1529,7 @@
     },
     {
       "id": "cherry_leaves",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/cherry_leaves",
@@ -1462,6 +1562,7 @@
     },
     {
       "id": "cherry_log",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/cherry_log",
@@ -1491,6 +1592,7 @@
     },
     {
       "id": "cherry_planks",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/cherry_planks",
@@ -1520,6 +1622,7 @@
     },
     {
       "id": "cherry_wood",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/cherry_log",
@@ -1548,7 +1651,38 @@
       }
     },
     {
+      "id": "chiseled_cinnabar",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/chiseled_cinnabar",
+          "color": "#933737",
+          "lab": [36.3, 38.4, 20.5],
+          "contrast": 8.5,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/chiseled_cinnabar",
+          "color": "#933737",
+          "lab": [36.3, 38.4, 20.5],
+          "contrast": 8.5,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/chiseled_cinnabar",
+          "color": "#933737",
+          "lab": [36.3, 38.4, 20.5],
+          "contrast": 8.5,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "chiseled_copper",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/chiseled_copper",
@@ -1578,6 +1712,7 @@
     },
     {
       "id": "chiseled_deepslate",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/chiseled_deepslate",
@@ -1607,6 +1742,7 @@
     },
     {
       "id": "chiseled_nether_bricks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/chiseled_nether_bricks",
@@ -1636,6 +1772,7 @@
     },
     {
       "id": "chiseled_polished_blackstone",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/chiseled_polished_blackstone",
@@ -1665,6 +1802,7 @@
     },
     {
       "id": "chiseled_quartz_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/chiseled_quartz_block_top",
@@ -1694,6 +1832,7 @@
     },
     {
       "id": "chiseled_red_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_sandstone_top",
@@ -1723,6 +1862,7 @@
     },
     {
       "id": "chiseled_resin_bricks",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/chiseled_resin_bricks",
@@ -1752,6 +1892,7 @@
     },
     {
       "id": "chiseled_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sandstone_top",
@@ -1781,6 +1922,7 @@
     },
     {
       "id": "chiseled_stone_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/chiseled_stone_bricks",
@@ -1809,7 +1951,38 @@
       }
     },
     {
+      "id": "chiseled_sulfur",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/chiseled_sulfur",
+          "color": "#bbaa5b",
+          "lab": [69.3, -3.8, 42.1],
+          "contrast": 10.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/chiseled_sulfur",
+          "color": "#bbaa5b",
+          "lab": [69.3, -3.8, 42.1],
+          "contrast": 10.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/chiseled_sulfur",
+          "color": "#bbaa5b",
+          "lab": [69.3, -3.8, 42.1],
+          "contrast": 10.8,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "chiseled_tuff",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/chiseled_tuff_top",
@@ -1839,6 +2012,7 @@
     },
     {
       "id": "chiseled_tuff_bricks",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/chiseled_tuff_bricks_top",
@@ -1867,7 +2041,68 @@
       }
     },
     {
+      "id": "cinnabar",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/cinnabar",
+          "color": "#98534e",
+          "lab": [43.3, 28.2, 15.5],
+          "contrast": 5.4,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/cinnabar",
+          "color": "#98534e",
+          "lab": [43.3, 28.2, 15.5],
+          "contrast": 5.4,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/cinnabar",
+          "color": "#98534e",
+          "lab": [43.3, 28.2, 15.5],
+          "contrast": 5.4,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "cinnabar_bricks",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/cinnabar_bricks",
+          "color": "#943836",
+          "lab": [36.6, 38.7, 21.7],
+          "contrast": 7.2,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/cinnabar_bricks",
+          "color": "#943836",
+          "lab": [36.6, 38.7, 21.7],
+          "contrast": 7.2,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/cinnabar_bricks",
+          "color": "#943836",
+          "lab": [36.6, 38.7, 21.7],
+          "contrast": 7.2,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "clay",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/clay",
@@ -1897,6 +2132,7 @@
     },
     {
       "id": "coal_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/coal_block",
@@ -1926,6 +2162,7 @@
     },
     {
       "id": "coal_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/coal_ore",
@@ -1955,6 +2192,7 @@
     },
     {
       "id": "coarse_dirt",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/coarse_dirt",
@@ -1984,6 +2222,7 @@
     },
     {
       "id": "cobbled_deepslate",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/cobbled_deepslate",
@@ -2013,6 +2252,7 @@
     },
     {
       "id": "cobblestone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cobblestone",
@@ -2042,6 +2282,7 @@
     },
     {
       "id": "copper_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/copper_block",
@@ -2071,6 +2312,7 @@
     },
     {
       "id": "copper_bulb",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/copper_bulb",
@@ -2100,6 +2342,7 @@
     },
     {
       "id": "copper_grate",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/copper_grate",
@@ -2129,6 +2372,7 @@
     },
     {
       "id": "copper_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/copper_ore",
@@ -2158,6 +2402,7 @@
     },
     {
       "id": "cracked_deepslate_bricks",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/cracked_deepslate_bricks",
@@ -2187,6 +2432,7 @@
     },
     {
       "id": "cracked_deepslate_tiles",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/cracked_deepslate_tiles",
@@ -2216,6 +2462,7 @@
     },
     {
       "id": "cracked_nether_bricks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/cracked_nether_bricks",
@@ -2245,6 +2492,7 @@
     },
     {
       "id": "cracked_polished_blackstone_bricks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/cracked_polished_blackstone_bricks",
@@ -2274,6 +2522,7 @@
     },
     {
       "id": "cracked_stone_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cracked_stone_bricks",
@@ -2303,6 +2552,7 @@
     },
     {
       "id": "crafter",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/crafter_top",
@@ -2332,6 +2582,7 @@
     },
     {
       "id": "crafting_table",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/crafting_table_top",
@@ -2361,6 +2612,7 @@
     },
     {
       "id": "creaking_heart",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/creaking_heart_top_awake",
@@ -2390,6 +2642,7 @@
     },
     {
       "id": "crimson_hyphae",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/crimson_stem",
@@ -2419,6 +2672,7 @@
     },
     {
       "id": "crimson_nylium",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/crimson_nylium",
@@ -2448,6 +2702,7 @@
     },
     {
       "id": "crimson_planks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/crimson_planks",
@@ -2477,6 +2732,7 @@
     },
     {
       "id": "crimson_stem",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/crimson_stem_top",
@@ -2506,6 +2762,7 @@
     },
     {
       "id": "crying_obsidian",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/crying_obsidian",
@@ -2535,6 +2792,7 @@
     },
     {
       "id": "cut_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/cut_copper",
@@ -2564,6 +2822,7 @@
     },
     {
       "id": "cut_red_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_sandstone_top",
@@ -2593,6 +2852,7 @@
     },
     {
       "id": "cut_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sandstone_top",
@@ -2622,6 +2882,7 @@
     },
     {
       "id": "cyan_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cyan_concrete",
@@ -2651,6 +2912,7 @@
     },
     {
       "id": "cyan_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cyan_concrete_powder",
@@ -2680,6 +2942,7 @@
     },
     {
       "id": "cyan_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cyan_glazed_terracotta",
@@ -2709,6 +2972,7 @@
     },
     {
       "id": "cyan_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cyan_stained_glass",
@@ -2738,6 +3002,7 @@
     },
     {
       "id": "cyan_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cyan_terracotta",
@@ -2767,6 +3032,7 @@
     },
     {
       "id": "cyan_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/cyan_wool",
@@ -2796,6 +3062,7 @@
     },
     {
       "id": "dark_oak_leaves",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dark_oak_leaves",
@@ -2828,6 +3095,7 @@
     },
     {
       "id": "dark_oak_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dark_oak_log_top",
@@ -2857,6 +3125,7 @@
     },
     {
       "id": "dark_oak_planks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dark_oak_planks",
@@ -2886,6 +3155,7 @@
     },
     {
       "id": "dark_oak_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dark_oak_log",
@@ -2915,6 +3185,7 @@
     },
     {
       "id": "dark_prismarine",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dark_prismarine",
@@ -2944,6 +3215,7 @@
     },
     {
       "id": "dead_brain_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dead_brain_coral_block",
@@ -2973,6 +3245,7 @@
     },
     {
       "id": "dead_bubble_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dead_bubble_coral_block",
@@ -3002,6 +3275,7 @@
     },
     {
       "id": "dead_fire_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dead_fire_coral_block",
@@ -3031,6 +3305,7 @@
     },
     {
       "id": "dead_horn_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dead_horn_coral_block",
@@ -3060,6 +3335,7 @@
     },
     {
       "id": "dead_tube_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dead_tube_coral_block",
@@ -3089,6 +3365,7 @@
     },
     {
       "id": "deepslate",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_top",
@@ -3118,6 +3395,7 @@
     },
     {
       "id": "deepslate_bricks",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_bricks",
@@ -3147,6 +3425,7 @@
     },
     {
       "id": "deepslate_coal_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_coal_ore",
@@ -3176,6 +3455,7 @@
     },
     {
       "id": "deepslate_copper_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_copper_ore",
@@ -3205,6 +3485,7 @@
     },
     {
       "id": "deepslate_diamond_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_diamond_ore",
@@ -3234,6 +3515,7 @@
     },
     {
       "id": "deepslate_emerald_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_emerald_ore",
@@ -3263,6 +3545,7 @@
     },
     {
       "id": "deepslate_gold_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_gold_ore",
@@ -3292,6 +3575,7 @@
     },
     {
       "id": "deepslate_iron_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_iron_ore",
@@ -3321,6 +3605,7 @@
     },
     {
       "id": "deepslate_lapis_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_lapis_ore",
@@ -3350,6 +3635,7 @@
     },
     {
       "id": "deepslate_redstone_ore",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_redstone_ore",
@@ -3379,6 +3665,7 @@
     },
     {
       "id": "deepslate_tiles",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/deepslate_tiles",
@@ -3408,6 +3695,7 @@
     },
     {
       "id": "diamond_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/diamond_block",
@@ -3437,6 +3725,7 @@
     },
     {
       "id": "diamond_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/diamond_ore",
@@ -3466,6 +3755,7 @@
     },
     {
       "id": "diorite",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/diorite",
@@ -3495,6 +3785,7 @@
     },
     {
       "id": "dirt",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dirt",
@@ -3524,6 +3815,7 @@
     },
     {
       "id": "dispenser",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/furnace_top",
@@ -3553,6 +3845,7 @@
     },
     {
       "id": "dried_kelp_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/dried_kelp_top",
@@ -3582,6 +3875,7 @@
     },
     {
       "id": "dripstone_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/dripstone_block",
@@ -3611,6 +3905,7 @@
     },
     {
       "id": "dropper",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/furnace_top",
@@ -3640,6 +3935,7 @@
     },
     {
       "id": "emerald_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/emerald_block",
@@ -3669,6 +3965,7 @@
     },
     {
       "id": "emerald_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/emerald_ore",
@@ -3698,6 +3995,7 @@
     },
     {
       "id": "end_stone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/end_stone",
@@ -3727,6 +4025,7 @@
     },
     {
       "id": "end_stone_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/end_stone_bricks",
@@ -3756,6 +4055,7 @@
     },
     {
       "id": "exposed_chiseled_copper",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/exposed_chiseled_copper",
@@ -3785,6 +4085,7 @@
     },
     {
       "id": "exposed_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/exposed_copper",
@@ -3814,6 +4115,7 @@
     },
     {
       "id": "exposed_copper_bulb",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/exposed_copper_bulb",
@@ -3843,6 +4145,7 @@
     },
     {
       "id": "exposed_copper_grate",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/exposed_copper_grate",
@@ -3872,6 +4175,7 @@
     },
     {
       "id": "exposed_cut_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/exposed_cut_copper",
@@ -3901,6 +4205,7 @@
     },
     {
       "id": "fire_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/fire_coral_block",
@@ -3930,6 +4235,7 @@
     },
     {
       "id": "fletching_table",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/fletching_table_top",
@@ -3959,6 +4265,7 @@
     },
     {
       "id": "flowering_azalea_leaves",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/flowering_azalea_leaves",
@@ -3988,6 +4295,7 @@
     },
     {
       "id": "frosted_ice",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/frosted_ice_0",
@@ -4017,6 +4325,7 @@
     },
     {
       "id": "furnace",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/furnace_top",
@@ -4046,6 +4355,7 @@
     },
     {
       "id": "gilded_blackstone",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/gilded_blackstone",
@@ -4075,6 +4385,7 @@
     },
     {
       "id": "glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/glass",
@@ -4104,6 +4415,7 @@
     },
     {
       "id": "glowstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/glowstone",
@@ -4133,6 +4445,7 @@
     },
     {
       "id": "gold_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gold_block",
@@ -4162,6 +4475,7 @@
     },
     {
       "id": "gold_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gold_ore",
@@ -4191,6 +4505,7 @@
     },
     {
       "id": "granite",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/granite",
@@ -4220,6 +4535,7 @@
     },
     {
       "id": "grass_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/grass_block_top",
@@ -4250,6 +4566,7 @@
     },
     {
       "id": "gravel",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gravel",
@@ -4279,6 +4596,7 @@
     },
     {
       "id": "gray_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gray_concrete",
@@ -4308,6 +4626,7 @@
     },
     {
       "id": "gray_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gray_concrete_powder",
@@ -4337,6 +4656,7 @@
     },
     {
       "id": "gray_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gray_glazed_terracotta",
@@ -4366,6 +4686,7 @@
     },
     {
       "id": "gray_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gray_stained_glass",
@@ -4395,6 +4716,7 @@
     },
     {
       "id": "gray_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gray_terracotta",
@@ -4424,6 +4746,7 @@
     },
     {
       "id": "gray_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/gray_wool",
@@ -4453,6 +4776,7 @@
     },
     {
       "id": "green_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/green_concrete",
@@ -4482,6 +4806,7 @@
     },
     {
       "id": "green_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/green_concrete_powder",
@@ -4511,6 +4836,7 @@
     },
     {
       "id": "green_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/green_glazed_terracotta",
@@ -4540,6 +4866,7 @@
     },
     {
       "id": "green_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/green_stained_glass",
@@ -4569,6 +4896,7 @@
     },
     {
       "id": "green_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/green_terracotta",
@@ -4598,6 +4926,7 @@
     },
     {
       "id": "green_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/green_wool",
@@ -4627,6 +4956,7 @@
     },
     {
       "id": "hay_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/hay_block_top",
@@ -4638,9 +4968,9 @@
         },
         "side": {
           "texture": "block/hay_block_side",
-          "color": "#a68826",
-          "lab": [58.1, 1.3, 53.4],
-          "contrast": 10.2,
+          "color": "#a68926",
+          "lab": [58.2, 1.3, 53.5],
+          "contrast": 10.1,
           "opacity": 1,
           "animated": false
         },
@@ -4656,6 +4986,7 @@
     },
     {
       "id": "honeycomb_block",
+      "since": "1.15",
       "faces": {
         "top": {
           "texture": "block/honeycomb_block",
@@ -4685,6 +5016,7 @@
     },
     {
       "id": "horn_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/horn_coral_block",
@@ -4714,6 +5046,7 @@
     },
     {
       "id": "ice",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/ice",
@@ -4743,6 +5076,7 @@
     },
     {
       "id": "iron_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/iron_block",
@@ -4772,6 +5106,7 @@
     },
     {
       "id": "iron_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/iron_ore",
@@ -4801,6 +5136,7 @@
     },
     {
       "id": "jack_o_lantern",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pumpkin_top",
@@ -4830,6 +5166,7 @@
     },
     {
       "id": "jukebox",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/jukebox_top",
@@ -4859,6 +5196,7 @@
     },
     {
       "id": "jungle_leaves",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/jungle_leaves",
@@ -4891,6 +5229,7 @@
     },
     {
       "id": "jungle_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/jungle_log_top",
@@ -4920,6 +5259,7 @@
     },
     {
       "id": "jungle_planks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/jungle_planks",
@@ -4949,6 +5289,7 @@
     },
     {
       "id": "jungle_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/jungle_log",
@@ -4978,6 +5319,7 @@
     },
     {
       "id": "lapis_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lapis_block",
@@ -5007,6 +5349,7 @@
     },
     {
       "id": "lapis_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lapis_ore",
@@ -5036,6 +5379,7 @@
     },
     {
       "id": "light_blue_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_blue_concrete",
@@ -5065,6 +5409,7 @@
     },
     {
       "id": "light_blue_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_blue_concrete_powder",
@@ -5094,6 +5439,7 @@
     },
     {
       "id": "light_blue_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_blue_glazed_terracotta",
@@ -5123,6 +5469,7 @@
     },
     {
       "id": "light_blue_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_blue_stained_glass",
@@ -5152,6 +5499,7 @@
     },
     {
       "id": "light_blue_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_blue_terracotta",
@@ -5181,6 +5529,7 @@
     },
     {
       "id": "light_blue_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_blue_wool",
@@ -5210,6 +5559,7 @@
     },
     {
       "id": "light_gray_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_gray_concrete",
@@ -5239,6 +5589,7 @@
     },
     {
       "id": "light_gray_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_gray_concrete_powder",
@@ -5268,6 +5619,7 @@
     },
     {
       "id": "light_gray_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_gray_glazed_terracotta",
@@ -5297,6 +5649,7 @@
     },
     {
       "id": "light_gray_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_gray_stained_glass",
@@ -5326,6 +5679,7 @@
     },
     {
       "id": "light_gray_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_gray_terracotta",
@@ -5355,6 +5709,7 @@
     },
     {
       "id": "light_gray_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/light_gray_wool",
@@ -5384,6 +5739,7 @@
     },
     {
       "id": "lime_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lime_concrete",
@@ -5413,6 +5769,7 @@
     },
     {
       "id": "lime_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lime_concrete_powder",
@@ -5442,6 +5799,7 @@
     },
     {
       "id": "lime_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lime_glazed_terracotta",
@@ -5471,6 +5829,7 @@
     },
     {
       "id": "lime_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lime_stained_glass",
@@ -5500,6 +5859,7 @@
     },
     {
       "id": "lime_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lime_terracotta",
@@ -5529,6 +5889,7 @@
     },
     {
       "id": "lime_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/lime_wool",
@@ -5558,6 +5919,7 @@
     },
     {
       "id": "lodestone",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/lodestone_top",
@@ -5587,6 +5949,7 @@
     },
     {
       "id": "loom",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/loom_top",
@@ -5616,6 +5979,7 @@
     },
     {
       "id": "magenta_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magenta_concrete",
@@ -5645,6 +6009,7 @@
     },
     {
       "id": "magenta_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magenta_concrete_powder",
@@ -5674,6 +6039,7 @@
     },
     {
       "id": "magenta_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magenta_glazed_terracotta",
@@ -5703,6 +6069,7 @@
     },
     {
       "id": "magenta_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magenta_stained_glass",
@@ -5732,6 +6099,7 @@
     },
     {
       "id": "magenta_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magenta_terracotta",
@@ -5761,6 +6129,7 @@
     },
     {
       "id": "magenta_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magenta_wool",
@@ -5790,6 +6159,7 @@
     },
     {
       "id": "magma_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/magma",
@@ -5819,6 +6189,7 @@
     },
     {
       "id": "mangrove_leaves",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/mangrove_leaves",
@@ -5851,6 +6222,7 @@
     },
     {
       "id": "mangrove_log",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/mangrove_log_top",
@@ -5880,6 +6252,7 @@
     },
     {
       "id": "mangrove_planks",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/mangrove_planks",
@@ -5909,6 +6282,7 @@
     },
     {
       "id": "mangrove_wood",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/mangrove_log",
@@ -5938,6 +6312,7 @@
     },
     {
       "id": "melon",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/melon_top",
@@ -5967,6 +6342,7 @@
     },
     {
       "id": "moss_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/moss_block",
@@ -5996,6 +6372,7 @@
     },
     {
       "id": "mossy_cobblestone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/mossy_cobblestone",
@@ -6025,6 +6402,7 @@
     },
     {
       "id": "mossy_stone_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/mossy_stone_bricks",
@@ -6054,6 +6432,7 @@
     },
     {
       "id": "mud",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/mud",
@@ -6083,6 +6462,7 @@
     },
     {
       "id": "mud_bricks",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/mud_bricks",
@@ -6112,6 +6492,7 @@
     },
     {
       "id": "muddy_mangrove_roots",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/muddy_mangrove_roots_top",
@@ -6141,6 +6522,7 @@
     },
     {
       "id": "mycelium",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/mycelium_top",
@@ -6170,6 +6552,7 @@
     },
     {
       "id": "nether_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/nether_bricks",
@@ -6199,6 +6582,7 @@
     },
     {
       "id": "nether_gold_ore",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/nether_gold_ore",
@@ -6228,6 +6612,7 @@
     },
     {
       "id": "nether_quartz_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/nether_quartz_ore",
@@ -6257,6 +6642,7 @@
     },
     {
       "id": "nether_wart_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/nether_wart_block",
@@ -6286,6 +6672,7 @@
     },
     {
       "id": "netherite_block",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/netherite_block",
@@ -6315,6 +6702,7 @@
     },
     {
       "id": "netherrack",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/netherrack",
@@ -6344,6 +6732,7 @@
     },
     {
       "id": "note_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/note_block",
@@ -6373,6 +6762,7 @@
     },
     {
       "id": "oak_leaves",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/oak_leaves",
@@ -6405,6 +6795,7 @@
     },
     {
       "id": "oak_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/oak_log_top",
@@ -6434,6 +6825,7 @@
     },
     {
       "id": "oak_planks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/oak_planks",
@@ -6463,6 +6855,7 @@
     },
     {
       "id": "oak_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/oak_log",
@@ -6492,6 +6885,7 @@
     },
     {
       "id": "observer",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/observer_top",
@@ -6521,6 +6915,7 @@
     },
     {
       "id": "obsidian",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/obsidian",
@@ -6550,6 +6945,7 @@
     },
     {
       "id": "ochre_froglight",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/ochre_froglight_top",
@@ -6579,6 +6975,7 @@
     },
     {
       "id": "orange_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/orange_concrete",
@@ -6608,6 +7005,7 @@
     },
     {
       "id": "orange_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/orange_concrete_powder",
@@ -6637,6 +7035,7 @@
     },
     {
       "id": "orange_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/orange_glazed_terracotta",
@@ -6665,7 +7064,38 @@
       }
     },
     {
+      "id": "orange_poplar_leaves",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/orange_poplar_leaves",
+          "color": "#bc5618",
+          "lab": [48.8, 37.6, 51.2],
+          "contrast": 11,
+          "opacity": 0.71,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/orange_poplar_leaves",
+          "color": "#bc5618",
+          "lab": [48.8, 37.6, 51.2],
+          "contrast": 11,
+          "opacity": 0.71,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/orange_poplar_leaves",
+          "color": "#bc5618",
+          "lab": [48.8, 37.6, 51.2],
+          "contrast": 11,
+          "opacity": 0.71,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "orange_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/orange_stained_glass",
@@ -6695,6 +7125,7 @@
     },
     {
       "id": "orange_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/orange_terracotta",
@@ -6724,6 +7155,7 @@
     },
     {
       "id": "orange_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/orange_wool",
@@ -6753,6 +7185,7 @@
     },
     {
       "id": "oxidized_chiseled_copper",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/oxidized_chiseled_copper",
@@ -6782,6 +7215,7 @@
     },
     {
       "id": "oxidized_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/oxidized_copper",
@@ -6811,6 +7245,7 @@
     },
     {
       "id": "oxidized_copper_bulb",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/oxidized_copper_bulb",
@@ -6840,6 +7275,7 @@
     },
     {
       "id": "oxidized_copper_grate",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/oxidized_copper_grate",
@@ -6869,6 +7305,7 @@
     },
     {
       "id": "oxidized_cut_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/oxidized_cut_copper",
@@ -6898,6 +7335,7 @@
     },
     {
       "id": "packed_ice",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/packed_ice",
@@ -6927,6 +7365,7 @@
     },
     {
       "id": "packed_mud",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/packed_mud",
@@ -6956,6 +7395,7 @@
     },
     {
       "id": "pale_moss_block",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/pale_moss_block",
@@ -6985,6 +7425,7 @@
     },
     {
       "id": "pale_oak_leaves",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/pale_oak_leaves",
@@ -7017,6 +7458,7 @@
     },
     {
       "id": "pale_oak_log",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/pale_oak_log_top",
@@ -7046,6 +7488,7 @@
     },
     {
       "id": "pale_oak_planks",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/pale_oak_planks",
@@ -7075,6 +7518,7 @@
     },
     {
       "id": "pale_oak_wood",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/pale_oak_log",
@@ -7104,6 +7548,7 @@
     },
     {
       "id": "pearlescent_froglight",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/pearlescent_froglight_top",
@@ -7133,6 +7578,7 @@
     },
     {
       "id": "pink_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pink_concrete",
@@ -7162,6 +7608,7 @@
     },
     {
       "id": "pink_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pink_concrete_powder",
@@ -7191,6 +7638,7 @@
     },
     {
       "id": "pink_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pink_glazed_terracotta",
@@ -7220,6 +7668,7 @@
     },
     {
       "id": "pink_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pink_stained_glass",
@@ -7249,6 +7698,7 @@
     },
     {
       "id": "pink_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pink_terracotta",
@@ -7278,6 +7728,7 @@
     },
     {
       "id": "pink_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pink_wool",
@@ -7307,6 +7758,7 @@
     },
     {
       "id": "piston",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/piston_side",
@@ -7336,6 +7788,7 @@
     },
     {
       "id": "podzol",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/podzol_top",
@@ -7365,6 +7818,7 @@
     },
     {
       "id": "polished_andesite",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/polished_andesite",
@@ -7394,6 +7848,7 @@
     },
     {
       "id": "polished_basalt",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/polished_basalt_top",
@@ -7423,6 +7878,7 @@
     },
     {
       "id": "polished_blackstone",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/polished_blackstone",
@@ -7452,6 +7908,7 @@
     },
     {
       "id": "polished_blackstone_bricks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/polished_blackstone_bricks",
@@ -7480,7 +7937,38 @@
       }
     },
     {
+      "id": "polished_cinnabar",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/polished_cinnabar",
+          "color": "#993a37",
+          "lab": [37.8, 39.5, 22.5],
+          "contrast": 6.7,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/polished_cinnabar",
+          "color": "#993a37",
+          "lab": [37.8, 39.5, 22.5],
+          "contrast": 6.7,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/polished_cinnabar",
+          "color": "#993a37",
+          "lab": [37.8, 39.5, 22.5],
+          "contrast": 6.7,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "polished_deepslate",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/polished_deepslate",
@@ -7510,6 +7998,7 @@
     },
     {
       "id": "polished_diorite",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/polished_diorite",
@@ -7539,6 +8028,7 @@
     },
     {
       "id": "polished_granite",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/polished_granite",
@@ -7561,6 +8051,36 @@
           "color": "#9a6b59",
           "lab": [49.5, 16.6, 17.5],
           "contrast": 8.6,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "polished_sulfur",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/polished_sulfur",
+          "color": "#bcaa5b",
+          "lab": [69.6, -3.8, 42.5],
+          "contrast": 9.1,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/polished_sulfur",
+          "color": "#bcaa5b",
+          "lab": [69.6, -3.8, 42.5],
+          "contrast": 9.1,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/polished_sulfur",
+          "color": "#bcaa5b",
+          "lab": [69.6, -3.8, 42.5],
+          "contrast": 9.1,
           "opacity": 1,
           "animated": false
         }
@@ -7568,6 +8088,7 @@
     },
     {
       "id": "polished_tuff",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/polished_tuff",
@@ -7596,7 +8117,128 @@
       }
     },
     {
+      "id": "poplar_log",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/poplar_log_top",
+          "color": "#887a6e",
+          "lab": [51.9, 3.4, 8.8],
+          "contrast": 14.1,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/poplar_log",
+          "color": "#4f3d2b",
+          "lab": [27.2, 5.4, 14.3],
+          "contrast": 3.9,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/poplar_log_top",
+          "color": "#887a6e",
+          "lab": [51.9, 3.4, 8.8],
+          "contrast": 14.1,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "poplar_planks",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/poplar_planks",
+          "color": "#96897f",
+          "lab": [57.9, 3, 6.9],
+          "contrast": 7.3,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/poplar_planks",
+          "color": "#96897f",
+          "lab": [57.9, 3, 6.9],
+          "contrast": 7.3,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/poplar_planks",
+          "color": "#96897f",
+          "lab": [57.9, 3, 6.9],
+          "contrast": 7.3,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "poplar_wood",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/poplar_log",
+          "color": "#4f3d2b",
+          "lab": [27.2, 5.4, 14.3],
+          "contrast": 3.9,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/poplar_log",
+          "color": "#4f3d2b",
+          "lab": [27.2, 5.4, 14.3],
+          "contrast": 3.9,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/poplar_log",
+          "color": "#4f3d2b",
+          "lab": [27.2, 5.4, 14.3],
+          "contrast": 3.9,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "potent_sulfur",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/potent_sulfur",
+          "color": "#d3d161",
+          "lab": [81.9, -13.7, 54.6],
+          "contrast": 3.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/potent_sulfur",
+          "color": "#d3d161",
+          "lab": [81.9, -13.7, 54.6],
+          "contrast": 3.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/potent_sulfur",
+          "color": "#d3d161",
+          "lab": [81.9, -13.7, 54.6],
+          "contrast": 3.8,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "prismarine",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/prismarine",
@@ -7626,6 +8268,7 @@
     },
     {
       "id": "prismarine_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/prismarine_bricks",
@@ -7655,6 +8298,7 @@
     },
     {
       "id": "pumpkin",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/pumpkin_top",
@@ -7684,6 +8328,7 @@
     },
     {
       "id": "purple_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purple_concrete",
@@ -7713,6 +8358,7 @@
     },
     {
       "id": "purple_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purple_concrete_powder",
@@ -7742,6 +8388,7 @@
     },
     {
       "id": "purple_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purple_glazed_terracotta",
@@ -7771,6 +8418,7 @@
     },
     {
       "id": "purple_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purple_stained_glass",
@@ -7800,6 +8448,7 @@
     },
     {
       "id": "purple_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purple_terracotta",
@@ -7829,6 +8478,7 @@
     },
     {
       "id": "purple_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purple_wool",
@@ -7858,6 +8508,7 @@
     },
     {
       "id": "purpur_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purpur_block",
@@ -7887,6 +8538,7 @@
     },
     {
       "id": "purpur_pillar",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/purpur_pillar_top",
@@ -7897,7 +8549,7 @@
           "animated": false
         },
         "side": {
-          "texture": "block/purpur_pillar",
+          "texture": "block/purpur_pillar_side",
           "color": "#ac82ac",
           "lab": [59.4, 23.6, -16],
           "contrast": 7.6,
@@ -7916,6 +8568,7 @@
     },
     {
       "id": "quartz_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/quartz_block_top",
@@ -7945,6 +8598,7 @@
     },
     {
       "id": "quartz_bricks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/quartz_bricks",
@@ -7974,6 +8628,7 @@
     },
     {
       "id": "quartz_pillar",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/quartz_pillar_top",
@@ -7984,7 +8639,7 @@
           "animated": false
         },
         "side": {
-          "texture": "block/quartz_pillar",
+          "texture": "block/quartz_pillar_side",
           "color": "#ece7e0",
           "lab": [91.7, 0.5, 3.8],
           "contrast": 2.4,
@@ -8003,6 +8658,7 @@
     },
     {
       "id": "raw_copper_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/raw_copper_block",
@@ -8032,6 +8688,7 @@
     },
     {
       "id": "raw_gold_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/raw_gold_block",
@@ -8061,6 +8718,7 @@
     },
     {
       "id": "raw_iron_block",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/raw_iron_block",
@@ -8090,6 +8748,7 @@
     },
     {
       "id": "red_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_concrete",
@@ -8119,6 +8778,7 @@
     },
     {
       "id": "red_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_concrete_powder",
@@ -8148,6 +8808,7 @@
     },
     {
       "id": "red_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_glazed_terracotta",
@@ -8177,6 +8838,7 @@
     },
     {
       "id": "red_nether_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_nether_bricks",
@@ -8205,7 +8867,38 @@
       }
     },
     {
+      "id": "red_poplar_leaves",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/red_poplar_leaves",
+          "color": "#9a2c27",
+          "lab": [35.5, 44.8, 29],
+          "contrast": 9.6,
+          "opacity": 0.71,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/red_poplar_leaves",
+          "color": "#9a2c27",
+          "lab": [35.5, 44.8, 29],
+          "contrast": 9.6,
+          "opacity": 0.71,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/red_poplar_leaves",
+          "color": "#9a2c27",
+          "lab": [35.5, 44.8, 29],
+          "contrast": 9.6,
+          "opacity": 0.71,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "red_sand",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_sand",
@@ -8235,6 +8928,7 @@
     },
     {
       "id": "red_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_sandstone_top",
@@ -8264,6 +8958,7 @@
     },
     {
       "id": "red_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_stained_glass",
@@ -8293,6 +8988,7 @@
     },
     {
       "id": "red_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_terracotta",
@@ -8322,6 +9018,7 @@
     },
     {
       "id": "red_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_wool",
@@ -8351,6 +9048,7 @@
     },
     {
       "id": "redstone_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/redstone_block",
@@ -8380,6 +9078,7 @@
     },
     {
       "id": "redstone_lamp",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/redstone_lamp",
@@ -8409,6 +9108,7 @@
     },
     {
       "id": "redstone_ore",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/redstone_ore",
@@ -8438,6 +9138,7 @@
     },
     {
       "id": "reinforced_deepslate",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/reinforced_deepslate_top",
@@ -8467,6 +9168,7 @@
     },
     {
       "id": "resin_block",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/resin_block",
@@ -8496,6 +9198,7 @@
     },
     {
       "id": "resin_bricks",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/resin_bricks",
@@ -8525,6 +9228,7 @@
     },
     {
       "id": "respawn_anchor",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/respawn_anchor_top_off",
@@ -8554,6 +9258,7 @@
     },
     {
       "id": "rooted_dirt",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/rooted_dirt",
@@ -8583,6 +9288,7 @@
     },
     {
       "id": "sand",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sand",
@@ -8612,6 +9318,7 @@
     },
     {
       "id": "sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sandstone_top",
@@ -8641,6 +9348,7 @@
     },
     {
       "id": "sculk",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/sculk",
@@ -8670,6 +9378,7 @@
     },
     {
       "id": "sculk_catalyst",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/sculk_catalyst_top",
@@ -8699,6 +9408,7 @@
     },
     {
       "id": "sea_lantern",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sea_lantern",
@@ -8728,6 +9438,7 @@
     },
     {
       "id": "shroomlight",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/shroomlight",
@@ -8757,6 +9468,7 @@
     },
     {
       "id": "smithing_table",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/smithing_table_top",
@@ -8786,6 +9498,7 @@
     },
     {
       "id": "smoker",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/smoker_top",
@@ -8815,6 +9528,7 @@
     },
     {
       "id": "smooth_basalt",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/smooth_basalt",
@@ -8844,6 +9558,7 @@
     },
     {
       "id": "smooth_quartz",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/quartz_block_bottom",
@@ -8873,6 +9588,7 @@
     },
     {
       "id": "smooth_red_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/red_sandstone_top",
@@ -8902,6 +9618,7 @@
     },
     {
       "id": "smooth_sandstone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sandstone_top",
@@ -8931,6 +9648,7 @@
     },
     {
       "id": "smooth_stone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/smooth_stone",
@@ -8960,6 +9678,7 @@
     },
     {
       "id": "snow_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/snow",
@@ -8989,6 +9708,7 @@
     },
     {
       "id": "soul_sand",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/soul_sand",
@@ -9018,6 +9738,7 @@
     },
     {
       "id": "soul_soil",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/soul_soil",
@@ -9047,6 +9768,7 @@
     },
     {
       "id": "sponge",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/sponge",
@@ -9076,6 +9798,7 @@
     },
     {
       "id": "spruce_leaves",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/spruce_leaves",
@@ -9108,6 +9831,7 @@
     },
     {
       "id": "spruce_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/spruce_log_top",
@@ -9137,6 +9861,7 @@
     },
     {
       "id": "spruce_planks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/spruce_planks",
@@ -9166,6 +9891,7 @@
     },
     {
       "id": "spruce_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/spruce_log",
@@ -9195,6 +9921,7 @@
     },
     {
       "id": "sticky_piston",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/piston_side",
@@ -9224,6 +9951,7 @@
     },
     {
       "id": "stone",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stone",
@@ -9253,6 +9981,7 @@
     },
     {
       "id": "stone_bricks",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stone_bricks",
@@ -9282,6 +10011,7 @@
     },
     {
       "id": "stripped_acacia_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_acacia_log_top",
@@ -9311,6 +10041,7 @@
     },
     {
       "id": "stripped_acacia_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_acacia_log",
@@ -9340,6 +10071,7 @@
     },
     {
       "id": "stripped_bamboo_block",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/stripped_bamboo_block",
@@ -9369,6 +10101,7 @@
     },
     {
       "id": "stripped_birch_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_birch_log_top",
@@ -9398,6 +10131,7 @@
     },
     {
       "id": "stripped_birch_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_birch_log",
@@ -9427,6 +10161,7 @@
     },
     {
       "id": "stripped_cherry_log",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/stripped_cherry_log",
@@ -9456,6 +10191,7 @@
     },
     {
       "id": "stripped_cherry_wood",
+      "since": "1.20",
       "faces": {
         "top": {
           "texture": "block/stripped_cherry_log",
@@ -9485,6 +10221,7 @@
     },
     {
       "id": "stripped_crimson_hyphae",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/stripped_crimson_stem",
@@ -9514,6 +10251,7 @@
     },
     {
       "id": "stripped_crimson_stem",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/stripped_crimson_stem_top",
@@ -9543,6 +10281,7 @@
     },
     {
       "id": "stripped_dark_oak_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_dark_oak_log_top",
@@ -9572,6 +10311,7 @@
     },
     {
       "id": "stripped_dark_oak_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_dark_oak_log",
@@ -9601,6 +10341,7 @@
     },
     {
       "id": "stripped_jungle_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_jungle_log_top",
@@ -9630,6 +10371,7 @@
     },
     {
       "id": "stripped_jungle_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_jungle_log",
@@ -9659,6 +10401,7 @@
     },
     {
       "id": "stripped_mangrove_log",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/stripped_mangrove_log_top",
@@ -9688,6 +10431,7 @@
     },
     {
       "id": "stripped_mangrove_wood",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/stripped_mangrove_log",
@@ -9717,6 +10461,7 @@
     },
     {
       "id": "stripped_oak_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_oak_log_top",
@@ -9746,6 +10491,7 @@
     },
     {
       "id": "stripped_oak_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_oak_log",
@@ -9775,6 +10521,7 @@
     },
     {
       "id": "stripped_pale_oak_log",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/stripped_pale_oak_log_top",
@@ -9804,6 +10551,7 @@
     },
     {
       "id": "stripped_pale_oak_wood",
+      "since": "1.21.4",
       "faces": {
         "top": {
           "texture": "block/stripped_pale_oak_log",
@@ -9832,13 +10580,74 @@
       }
     },
     {
+      "id": "stripped_poplar_log",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/stripped_poplar_log_top",
+          "color": "#988b81",
+          "lab": [58.8, 2.8, 7],
+          "contrast": 4.6,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/stripped_poplar_log",
+          "color": "#a5998c",
+          "lab": [63.7, 2.2, 8.4],
+          "contrast": 1.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/stripped_poplar_log_top",
+          "color": "#988b81",
+          "lab": [58.8, 2.8, 7],
+          "contrast": 4.6,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "stripped_poplar_wood",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/stripped_poplar_log",
+          "color": "#a5998c",
+          "lab": [63.7, 2.2, 8.4],
+          "contrast": 1.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/stripped_poplar_log",
+          "color": "#a5998c",
+          "lab": [63.7, 2.2, 8.4],
+          "contrast": 1.8,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/stripped_poplar_log",
+          "color": "#a5998c",
+          "lab": [63.7, 2.2, 8.4],
+          "contrast": 1.8,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "stripped_spruce_log",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_spruce_log_top",
-          "color": "#6a502f",
-          "lab": [35.9, 6.1, 23.8],
-          "contrast": 7.4,
+          "color": "#715732",
+          "lab": [38.8, 6.2, 25.2],
+          "contrast": 3.8,
           "opacity": 1,
           "animated": false
         },
@@ -9852,9 +10661,9 @@
         },
         "bottom": {
           "texture": "block/stripped_spruce_log_top",
-          "color": "#6a502f",
-          "lab": [35.9, 6.1, 23.8],
-          "contrast": 7.4,
+          "color": "#715732",
+          "lab": [38.8, 6.2, 25.2],
+          "contrast": 3.8,
           "opacity": 1,
           "animated": false
         }
@@ -9862,6 +10671,7 @@
     },
     {
       "id": "stripped_spruce_wood",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/stripped_spruce_log",
@@ -9891,6 +10701,7 @@
     },
     {
       "id": "stripped_warped_hyphae",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/stripped_warped_stem",
@@ -9920,6 +10731,7 @@
     },
     {
       "id": "stripped_warped_stem",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/stripped_warped_stem_top",
@@ -9948,7 +10760,68 @@
       }
     },
     {
+      "id": "sulfur",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/sulfur",
+          "color": "#beaf66",
+          "lab": [71.3, -5, 39.3],
+          "contrast": 5.4,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/sulfur",
+          "color": "#beaf66",
+          "lab": [71.3, -5, 39.3],
+          "contrast": 5.4,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/sulfur",
+          "color": "#beaf66",
+          "lab": [71.3, -5, 39.3],
+          "contrast": 5.4,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
+      "id": "sulfur_bricks",
+      "since": "26.2",
+      "faces": {
+        "top": {
+          "texture": "block/sulfur_bricks",
+          "color": "#bba85b",
+          "lab": [68.8, -3, 41.5],
+          "contrast": 10.3,
+          "opacity": 1,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/sulfur_bricks",
+          "color": "#bba85b",
+          "lab": [68.8, -3, 41.5],
+          "contrast": 10.3,
+          "opacity": 1,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/sulfur_bricks",
+          "color": "#bba85b",
+          "lab": [68.8, -3, 41.5],
+          "contrast": 10.3,
+          "opacity": 1,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "target",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/target_top",
@@ -9978,6 +10851,7 @@
     },
     {
       "id": "terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/terracotta",
@@ -10007,6 +10881,7 @@
     },
     {
       "id": "tinted_glass",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/tinted_glass",
@@ -10036,6 +10911,7 @@
     },
     {
       "id": "tnt",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/tnt_top",
@@ -10065,6 +10941,7 @@
     },
     {
       "id": "tube_coral_block",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/tube_coral_block",
@@ -10094,6 +10971,7 @@
     },
     {
       "id": "tuff",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/tuff",
@@ -10123,6 +11001,7 @@
     },
     {
       "id": "tuff_bricks",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/tuff_bricks",
@@ -10152,6 +11031,7 @@
     },
     {
       "id": "verdant_froglight",
+      "since": "1.19",
       "faces": {
         "top": {
           "texture": "block/verdant_froglight_top",
@@ -10181,6 +11061,7 @@
     },
     {
       "id": "warped_hyphae",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/warped_stem",
@@ -10210,6 +11091,7 @@
     },
     {
       "id": "warped_nylium",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/warped_nylium",
@@ -10239,6 +11121,7 @@
     },
     {
       "id": "warped_planks",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/warped_planks",
@@ -10268,6 +11151,7 @@
     },
     {
       "id": "warped_stem",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/warped_stem_top",
@@ -10297,6 +11181,7 @@
     },
     {
       "id": "warped_wart_block",
+      "since": "1.16",
       "faces": {
         "top": {
           "texture": "block/warped_wart_block",
@@ -10326,6 +11211,7 @@
     },
     {
       "id": "weathered_chiseled_copper",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/weathered_chiseled_copper",
@@ -10355,6 +11241,7 @@
     },
     {
       "id": "weathered_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/weathered_copper",
@@ -10384,6 +11271,7 @@
     },
     {
       "id": "weathered_copper_bulb",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/weathered_copper_bulb",
@@ -10413,6 +11301,7 @@
     },
     {
       "id": "weathered_copper_grate",
+      "since": "1.21",
       "faces": {
         "top": {
           "texture": "block/weathered_copper_grate",
@@ -10442,6 +11331,7 @@
     },
     {
       "id": "weathered_cut_copper",
+      "since": "1.17",
       "faces": {
         "top": {
           "texture": "block/weathered_cut_copper",
@@ -10471,6 +11361,7 @@
     },
     {
       "id": "wet_sponge",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/wet_sponge",
@@ -10500,6 +11391,7 @@
     },
     {
       "id": "white_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/white_concrete",
@@ -10529,6 +11421,7 @@
     },
     {
       "id": "white_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/white_concrete_powder",
@@ -10558,6 +11451,7 @@
     },
     {
       "id": "white_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/white_glazed_terracotta",
@@ -10587,6 +11481,7 @@
     },
     {
       "id": "white_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/white_stained_glass",
@@ -10616,6 +11511,7 @@
     },
     {
       "id": "white_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/white_terracotta",
@@ -10645,6 +11541,7 @@
     },
     {
       "id": "white_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/white_wool",
@@ -10674,6 +11571,7 @@
     },
     {
       "id": "yellow_concrete",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/yellow_concrete",
@@ -10703,6 +11601,7 @@
     },
     {
       "id": "yellow_concrete_powder",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/yellow_concrete_powder",
@@ -10732,6 +11631,7 @@
     },
     {
       "id": "yellow_glazed_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/yellow_glazed_terracotta",
@@ -10760,7 +11660,38 @@
       }
     },
     {
+      "id": "yellow_poplar_leaves",
+      "since": "26.3",
+      "faces": {
+        "top": {
+          "texture": "block/yellow_poplar_leaves",
+          "color": "#d78628",
+          "lab": [62.9, 24.5, 58.6],
+          "contrast": 13.8,
+          "opacity": 0.71,
+          "animated": false
+        },
+        "side": {
+          "texture": "block/yellow_poplar_leaves",
+          "color": "#d78628",
+          "lab": [62.9, 24.5, 58.6],
+          "contrast": 13.8,
+          "opacity": 0.71,
+          "animated": false
+        },
+        "bottom": {
+          "texture": "block/yellow_poplar_leaves",
+          "color": "#d78628",
+          "lab": [62.9, 24.5, 58.6],
+          "contrast": 13.8,
+          "opacity": 0.71,
+          "animated": false
+        }
+      }
+    },
+    {
       "id": "yellow_stained_glass",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/yellow_stained_glass",
@@ -10790,6 +11721,7 @@
     },
     {
       "id": "yellow_terracotta",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/yellow_terracotta",
@@ -10819,6 +11751,7 @@
     },
     {
       "id": "yellow_wool",
+      "since": "1.14",
       "faces": {
         "top": {
           "texture": "block/yellow_wool",

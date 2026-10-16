@@ -1,11 +1,11 @@
 "use client";
 
-import { MC_VERSION } from "@repo/palette-core";
 import { useActivePalette } from "../../_lib/use-active-palette";
 import { useStudio } from "../../_lib/studio-store";
 import ExportDialog from "../export/export-dialog";
 import Logo from "./logo";
 import PalettesMenu from "./palettes-menu";
+import VersionSelect from "./version-select";
 
 export default function TopBar() {
   const palette = useActivePalette();
@@ -18,9 +18,7 @@ export default function TopBar() {
         <span className="hidden text-sm font-semibold tracking-tight text-studio-text sm:inline">
           Palette Studio
         </span>
-        <span className="hidden bg-studio-raised px-1.5 py-0.5 text-st-xs tabular-nums text-studio-muted md:inline">
-          Java {MC_VERSION}
-        </span>
+        <VersionSelect />
       </div>
       <div className="h-6 w-px bg-studio-line" />
       <label className="min-w-0 max-w-xs flex-1">

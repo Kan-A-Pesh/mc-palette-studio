@@ -11,6 +11,7 @@ export function encodeShare(palette: Palette): string {
     k: palette.mode === "fixed" ? "f" : "r",
     s: palette.surface === "floor" ? "f" : "w",
     d: palette.seed,
+    r: palette.version,
     t: [
       palette.tile.width,
       palette.tile.height,

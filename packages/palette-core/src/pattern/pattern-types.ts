@@ -20,6 +20,8 @@ export interface Palette {
   mainBlockId: string;
   /** Blocks of the palette, main block first. */
   entries: WeightedBlock[];
+  /** Java release the palette is built for. */
+  version: string;
   mode: PatternMode;
   surface: Surface;
   seed: number;

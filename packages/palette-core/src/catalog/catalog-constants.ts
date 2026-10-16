@@ -1,8 +1,14 @@
 import rawCatalog from "../data/blocks.json";
 
-export const MC_VERSION = rawCatalog.version;
+import type { McVersion } from "./catalog-types";
 
-export const ASSETS_BASE_URL = `https://cdn.jsdelivr.net/gh/InventivetalentDev/minecraft-assets@${MC_VERSION}/assets/minecraft/textures`;
+/** Java release the catalog and its textures were built from. */
+export const LATEST_VERSION = rawCatalog.version;
+
+/** Java releases a palette can target, newest first. */
+export const MC_VERSIONS: readonly McVersion[] = rawCatalog.versions;
+
+export const ASSETS_BASE_URL = `https://cdn.jsdelivr.net/gh/misode/mcmeta@${LATEST_VERSION}-assets/assets/minecraft/textures`;
 
 // Two-word dyes first so `light_gray_wool` is not read as `gray`.
 export const DYE_COLORS = [

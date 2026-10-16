@@ -11,4 +11,6 @@ export interface SharePayloadV1 {
   s: "w" | "f";
   d: number;
   t: [number, number, (string | 0)[]];
+  /** Target Java release; links made before it existed use the latest. */
+  r?: string;
 }

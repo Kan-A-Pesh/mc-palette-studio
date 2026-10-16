@@ -28,8 +28,15 @@ export default function VariationsPanel() {
   const face = surfaceFace(palette);
   const suggestions = useMemo(
     () =>
-      main ? suggestVariations(main, mode, { face, tolerance, limit: 18 }) : [],
-    [main, mode, face, tolerance],
+      main
+        ? suggestVariations(main, mode, {
+            face,
+            tolerance,
+            limit: 18,
+            version: palette.version,
+          })
+        : [],
+    [main, mode, face, tolerance, palette.version],
   );
   const inPalette = new Set(palette.entries.map((e) => e.blockId));
   const notAdded = suggestions.filter((s) => !inPalette.has(s.block.id));

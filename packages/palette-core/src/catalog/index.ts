@@ -6,3 +6,5 @@ export * from "./family-of";
 export * from "./category-of";
 export * from "./display-name";
 export * from "./texture-url";
+export * from "./resolve-version";
+export * from "./is-available";

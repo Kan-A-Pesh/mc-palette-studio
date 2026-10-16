@@ -17,6 +17,13 @@ export interface FaceInfo {
   animated: boolean;
 }
 
+export interface McVersion {
+  /** Release id, e.g. `1.20.1`. */
+  id: string;
+  /** World data version written into schematics. */
+  dataVersion: number;
+}
+
 export type FaceName = "top" | "side" | "bottom";
 
 export type DyeColor = (typeof DYE_COLORS)[number];
@@ -32,4 +39,6 @@ export interface BlockInfo {
   dye?: DyeColor;
   category: Category;
   transparent: boolean;
+  /** First Java release where the block is available in survival. */
+  since: string;
 }

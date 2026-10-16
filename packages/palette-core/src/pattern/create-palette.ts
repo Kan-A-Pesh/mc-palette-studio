@@ -1,3 +1,4 @@
+import { LATEST_VERSION } from "../catalog";
 import type { Palette } from "./pattern-types";
 import { createTile } from "./tile";
 
@@ -10,6 +11,7 @@ export function createPalette(
     name: init.name ?? "New palette",
     mainBlockId,
     entries: init.entries ?? [{ blockId: mainBlockId, weight: 60 }],
+    version: init.version ?? LATEST_VERSION,
     mode: init.mode ?? "random",
     surface: init.surface ?? "wall",
     seed: init.seed ?? 1,

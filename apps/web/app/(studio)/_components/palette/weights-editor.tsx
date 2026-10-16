@@ -1,11 +1,15 @@
 "use client";
 
 import { toPercentages, type Palette } from "@repo/palette-core";
+import { unavailableBlocks } from "../../_lib/unavailable-blocks";
 import WeightRow from "./weight-row";
 
 export default function WeightsEditor({ palette }: { palette: Palette }) {
   const percentages = new Map(
     toPercentages(palette.entries).map((e) => [e.blockId, e.weight]),
+  );
+  const missing = new Map(
+    unavailableBlocks(palette).map((b) => [b.id, b.since]),
   );
 
   return (
@@ -17,6 +21,7 @@ export default function WeightsEditor({ palette }: { palette: Palette }) {
             entry={entry}
             percent={percentages.get(entry.blockId) ?? 0}
             isMain={entry.blockId === palette.mainBlockId}
+            missingUntil={missing.get(entry.blockId)}
           />
         ))}
       </ul>
