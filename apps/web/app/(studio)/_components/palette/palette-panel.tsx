@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Plus } from "lucide-react";
-import { useStudio } from "../../_lib/studio-store";
+import { useStudio, type PickerPurpose } from "../../_lib/studio-store";
 import { useActivePalette } from "../../_lib/use-active-palette";
 import BlockBrowser from "../browser/block-browser";
 import SectionTitle from "../shared/section-title";
@@ -18,6 +19,22 @@ export default function PalettePanel() {
   const setMode = useStudio((s) => s.setMode);
   const picker = useStudio((s) => s.picker);
   const openPicker = useStudio((s) => s.openPicker);
+  const panelRef = useRef<HTMLElement>(null);
+  const openedFor = useRef<PickerPurpose | null>(null);
+
+  // Closing the picker remounts the palette: focus the button that opened it.
+  useEffect(() => {
+    if (picker) {
+      openedFor.current = picker;
+      return;
+    }
+    const purpose = openedFor.current;
+    openedFor.current = null;
+    if (!purpose) return;
+    panelRef.current
+      ?.querySelector<HTMLElement>(`[data-picker-trigger="${purpose}"]`)
+      ?.focus();
+  }, [picker]);
 
   if (picker) {
     return (
@@ -32,6 +49,7 @@ export default function PalettePanel() {
 
   return (
     <aside
+      ref={panelRef}
       className="studio-scroll flex min-h-0 flex-col gap-6 overflow-y-auto border-l border-studio-line bg-studio-panel p-4"
       aria-label="Palette"
     >
@@ -49,6 +67,7 @@ export default function PalettePanel() {
             <StudioButton
               size="sm"
               variant="ghost"
+              data-picker-trigger="add"
               onClick={() => openPicker("add")}
             >
               <Plus className="size-3.5" />

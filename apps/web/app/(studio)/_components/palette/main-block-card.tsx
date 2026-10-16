@@ -27,7 +27,7 @@ export default function MainBlockCard({
           minecraft:{blockId}
         </p>
       </div>
-      <StudioButton size="sm" onClick={onChange}>
+      <StudioButton size="sm" data-picker-trigger="main" onClick={onChange}>
         Change
       </StudioButton>
     </section>
