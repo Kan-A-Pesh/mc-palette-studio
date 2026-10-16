@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { RedirectType, redirect } from "next/navigation";
 
 import { SearchMenu } from "@/components/search";
@@ -9,6 +10,10 @@ import { api } from "@/orpc/server";
 import HeaderMobile from "./_components/header-mobile";
 import { ImpersonationBanner } from "./_components/impersonation-banner";
 import Sidebar from "./_components/sidebar";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+};
 
 export default async function RootLayout({
   children,
