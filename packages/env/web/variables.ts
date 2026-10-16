@@ -1,19 +1,19 @@
 import { z } from "zod";
 
 export const serverVariables = {
-  BETTER_AUTH_SECRET: z.string(),
+  BETTER_AUTH_SECRET: z.string().optional(),
 
-  REDIS_URL: z.string().url(),
-  BLOB_READ_WRITE_TOKEN: z.string().min(1),
+  REDIS_URL: z.string().url().optional(),
+  BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
 
-  RESEND_API_KEY: z.string().min(1),
-  RESEND_FROM_EMAIL: z.string().min(1),
+  RESEND_API_KEY: z.string().min(1).optional(),
+  RESEND_FROM_EMAIL: z.string().min(1).optional(),
 
   REALTIME_TCP_URL: z.string().url().optional(),
   REALTIME_SECRET_KEY: z.string().min(32).optional(),
 
-  STRIPE_SECRET_KEY: z.string().min(1),
-  STRIPE_WEBHOOK_SECRET: z.string().min(1),
+  STRIPE_SECRET_KEY: z.string().min(1).optional(),
+  STRIPE_WEBHOOK_SECRET: z.string().min(1).optional(),
 
   VERCEL_URL: z.string().optional(),
   VERCEL_ENV: z.enum(["development", "preview", "production"]).optional(),

@@ -16,7 +16,8 @@
 #   VERCEL_ENV=preview  + open PR (VERCEL_GIT_PULL_REQUEST_ID / GitHub API) -> Railway: pr-{id}
 #   VERCEL_ENV=development / unset                         -> migrate + build only
 #
-# Required Vercel project env vars (production + preview):
+# Optional Vercel project env vars (production + preview). Without them the
+# migrate and Railway steps are skipped and only the web app is built:
 #   - RAILWAY_TOKEN (account token, railway.com/account/tokens, Workspace = No workspace)
 #   - RAILWAY_PROJECT_ID, RAILWAY_SERVICE_ID
 #   - REALTIME_SECRET_KEY (Production minimum; Preview optional — sync falls back to Production)
@@ -237,11 +238,21 @@ write_railway_realtime_endpoints_file() {
   echo "    wrote ${endpoints_file}"
 }
 
-echo "==> Running database migrations"
-turbo run db:migrate --filter=@repo/database
+# The studio is client-side: with no DATABASE_URL / Railway credentials the
+# deploy is a plain web build (see .cursor/rules/project/env.mdc).
+if [ -n "${DATABASE_URL:-}" ]; then
+  echo "==> Running database migrations"
+  turbo run db:migrate --filter=@repo/database
+else
+  echo "==> Skipping database migrations (DATABASE_URL not set)"
+fi
 
-RAILWAY_ENV_NAME="$(resolve_railway_environment_name)"
+RAILWAY_ENV_NAME=""
 SHOULD_SYNC_RAILWAY=false
+
+if railway_sync_configured; then
+  RAILWAY_ENV_NAME="$(resolve_railway_environment_name)"
+fi
 
 if [ -n "${RAILWAY_ENV_NAME}" ]; then
   require_railway_sync_config
@@ -251,8 +262,8 @@ if [ -n "${RAILWAY_ENV_NAME}" ]; then
   }
   SHOULD_SYNC_RAILWAY=true
   start_railway_deploy "${RAILWAY_ENV_NAME}" "${API_URL}"
-elif [ -z "${VERCEL_ENV:-}" ] || [ "${VERCEL_ENV:-}" = "development" ]; then
-  echo "==> Skipping Railway deploy (local/development build)"
+elif ! railway_sync_configured || [ -z "${VERCEL_ENV:-}" ] || [ "${VERCEL_ENV:-}" = "development" ]; then
+  echo "==> Skipping Railway deploy (local build or Railway not configured)"
 else
   echo "!! Unexpected VERCEL_ENV='${VERCEL_ENV:-}' — cannot determine deploy target." >&2
   exit 1

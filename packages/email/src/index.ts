@@ -19,7 +19,16 @@ import VerifyEmailTemplate, {
   type VerifyEmailTemplateProps,
 } from "./verify-email";
 
-const resendClient = new Resend(env.RESEND_API_KEY);
+let resendClient: Resend | undefined;
+
+// Created on first send so the app boots without RESEND_API_KEY.
+function getResendClient(): Resend {
+  if (!env.RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not set: email sending is disabled.");
+  }
+  resendClient ??= new Resend(env.RESEND_API_KEY);
+  return resendClient;
+}
 
 const templateRegistry = {
   "2fa-otp": TwoFactorOTPTemplate,
@@ -60,8 +69,13 @@ export async function sendEmail<Template extends EmailTemplateName>(
     EmailTemplateProps<Template>
   >;
 
-  return resendClient.emails.send({
-    from: options.from ?? env.RESEND_FROM_EMAIL,
+  const from = options.from ?? env.RESEND_FROM_EMAIL;
+  if (!from) {
+    throw new Error("RESEND_FROM_EMAIL is not set and no sender was given.");
+  }
+
+  return getResendClient().emails.send({
+    from,
     to: options.to,
     subject: options.subject,
     cc: options.cc,

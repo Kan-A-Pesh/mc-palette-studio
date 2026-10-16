@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const sharedEnvSchema = {
   NODE_ENV: z.enum(["development", "production"]).default("development"),
-  DATABASE_URL: z.string().min(1),
+  DATABASE_URL: z.string().min(1).optional(),
 };
 
 export const sharedEnv = createEnv({
