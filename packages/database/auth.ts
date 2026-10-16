@@ -28,8 +28,9 @@ export { ac, roles };
 
 export const auth = betterAuth({
   appName: PROJECT.NAME,
-  // Without BETTER_AUTH_SECRET the app still boots: a random per-process
-  // secret keeps sessions unforgeable (they just don't survive a restart).
+  // Without BETTER_AUTH_SECRET the app still boots with a random per-process
+  // secret. Sessions stay unforgeable but are not shared across instances or
+  // restarts: set a stable BETTER_AUTH_SECRET whenever auth is actually used.
   secret: env.BETTER_AUTH_SECRET ?? randomBytes(32).toString("hex"),
   baseURL: BASE_URL,
   trustedOrigins: [BASE_URL],
