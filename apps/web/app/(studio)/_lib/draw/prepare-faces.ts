@@ -1,8 +1,6 @@
 import type { Palette } from "@repo/palette-core";
 import { loadFaces } from "../textures/load-faces";
-import { surfaceFace } from "./surface-face";
-
-/** Textures needed to draw the palette's surface. */
+/** Side textures needed to draw the palette as a wall. */
 export function prepareFaces(palette: Palette) {
   const painted = palette.tile.cells.filter((c): c is string => !!c);
   const ids = [
@@ -10,5 +8,5 @@ export function prepareFaces(palette: Palette) {
     ...palette.entries.map((e) => e.blockId),
     ...painted,
   ];
-  return loadFaces(ids, [surfaceFace(palette)]);
+  return loadFaces(ids, ["side"]);
 }

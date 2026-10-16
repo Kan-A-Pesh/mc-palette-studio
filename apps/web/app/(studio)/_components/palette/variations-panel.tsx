@@ -3,7 +3,6 @@
 import { useMemo } from "react";
 import { getBlock, suggestVariations } from "@repo/palette-core";
 import { cn } from "@repo/ui/utils/cn";
-import { surfaceFace } from "../../_lib/draw/surface-face";
 import {
   QUICK_ADD_COUNT,
   VARIATION_MODE_OPTIONS,
@@ -25,18 +24,16 @@ export default function VariationsPanel() {
   const update = useStudio((s) => s.update);
 
   const main = getBlock(palette.mainBlockId);
-  const face = surfaceFace(palette);
   const suggestions = useMemo(
     () =>
       main
         ? suggestVariations(main, mode, {
-            face,
             tolerance,
             limit: 18,
             version: palette.version,
           })
         : [],
-    [main, mode, face, tolerance, palette.version],
+    [main, mode, tolerance, palette.version],
   );
   const inPalette = new Set(palette.entries.map((e) => e.blockId));
   const notAdded = suggestions.filter((s) => !inPalette.has(s.block.id));
@@ -95,7 +92,6 @@ export default function VariationsPanel() {
             <SuggestionCell
               key={block.id}
               block={block}
-              face={face}
               isMain={block.id === palette.mainBlockId}
               selected={inPalette.has(block.id)}
             />

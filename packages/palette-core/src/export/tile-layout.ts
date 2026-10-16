@@ -1,4 +1,4 @@
-import type { Palette } from "../pattern";
+import type { Palette, Surface } from "../pattern";
 
 export interface SchematicLayout {
   width: number;
@@ -9,11 +9,14 @@ export interface SchematicLayout {
 }
 
 /** Lays the fixed tile flat (floor) or upright (wall) in schematic space. */
-export function tileLayout(palette: Palette): SchematicLayout {
+export function tileLayout(
+  palette: Palette,
+  surface: Surface,
+): SchematicLayout {
   const { tile, mainBlockId } = palette;
   const cell = (cx: number, cy: number) =>
     tile.cells[cy * tile.width + cx] ?? mainBlockId;
-  if (palette.surface === "floor") {
+  if (surface === "floor") {
     return {
       width: tile.width,
       height: 1,

@@ -7,7 +7,7 @@ import BlockTexture from "../shared/block-texture";
 import type { TileToolProps } from "./tile-types";
 
 /** Click or drag to paint; right click paints the main block back. */
-export default function TileGrid({ palette, brush, face }: TileToolProps) {
+export default function TileGrid({ palette, brush }: TileToolProps) {
   const paintCell = useStudio((s) => s.paintCell);
   // `undefined` = not painting; `null` = painting the main block back.
   const painting = useRef<string | null | undefined>(undefined);
@@ -47,7 +47,6 @@ export default function TileGrid({ palette, brush, face }: TileToolProps) {
           >
             <BlockTexture
               blockId={id}
-              face={face}
               size={64}
               className="h-full! w-full! outline-0"
             />

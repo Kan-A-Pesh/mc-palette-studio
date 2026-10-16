@@ -1,8 +1,7 @@
-import type { FaceName, Palette } from "@repo/palette-core";
+import type { Palette } from "@repo/palette-core";
 
-/** What every tile tool needs: the palette, the active brush and the face shown. */
+/** What every tile tool needs: the palette and the active brush. */
 export interface TileToolProps {
   palette: Palette;
   brush: string;
-  face: FaceName;
 }

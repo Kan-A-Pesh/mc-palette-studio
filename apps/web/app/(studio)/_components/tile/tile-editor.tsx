@@ -1,7 +1,6 @@
 "use client";
 
 import type { Palette } from "@repo/palette-core";
-import { surfaceFace } from "../../_lib/draw/surface-face";
 import { useStudio } from "../../_lib/studio-store";
 import { tilePresets } from "../../_lib/tile-presets";
 import StudioButton from "../shared/studio-button";
@@ -14,7 +13,6 @@ export default function TileEditor({ palette }: { palette: Palette }) {
   const resizeTile = useStudio((s) => s.resizeTile);
   const fillTile = useStudio((s) => s.fillTile);
 
-  const face = surfaceFace(palette);
   const { width, height, cells } = palette.tile;
   const valid = brushId && palette.entries.some((e) => e.blockId === brushId);
   const brush = valid
@@ -24,8 +22,8 @@ export default function TileEditor({ palette }: { palette: Palette }) {
 
   return (
     <div className="flex flex-col gap-3">
-      <BrushPicker palette={palette} brush={brush} face={face} />
-      <TileGrid palette={palette} brush={brush} face={face} />
+      <BrushPicker palette={palette} brush={brush} />
+      <TileGrid palette={palette} brush={brush} />
       <div className="grid grid-cols-2 gap-3">
         <SizeStepper
           label="Width"

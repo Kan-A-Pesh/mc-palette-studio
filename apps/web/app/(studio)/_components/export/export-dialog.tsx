@@ -4,9 +4,10 @@ import { useState } from "react";
 import { Check, Download, FileBox, ImageDown, Link2, X } from "lucide-react";
 import {
   encodeSchematic,
-  SCHEMATIC_FILE_NAME,
+  SCHEMATIC_FILE_NAMES,
   worldEditCommands,
   type Palette,
+  type Surface,
 } from "@repo/palette-core";
 import * as Modal from "@repo/ui/modal";
 import { toast } from "@repo/ui/toast";
@@ -15,6 +16,7 @@ import { renderPaletteCard } from "../../_lib/card/render-palette-card";
 import { shareUrl } from "../../_lib/card/share-url";
 import { slugify } from "../../_lib/card/slugify";
 import SectionTitle from "../shared/section-title";
+import Segmented from "../shared/segmented";
 import StudioButton from "../shared/studio-button";
 import CommandRow from "./command-row";
 import { useCopy } from "./use-copy";
@@ -22,7 +24,9 @@ import { useCopy } from "./use-copy";
 export default function ExportDialog({ palette }: { palette: Palette }) {
   const { copied, copy } = useCopy();
   const [busy, setBusy] = useState<"png" | "schem" | null>(null);
-  const commands = worldEditCommands(palette);
+  // Where the fixed tile is laid: flat on the floor or upright on a wall.
+  const [surface, setSurface] = useState<Surface>("wall");
+  const commands = worldEditCommands(palette, surface);
   const fixed = palette.mode === "fixed";
 
   const downloadPng = async () => {
@@ -42,10 +46,10 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
   const downloadSchem = async () => {
     setBusy("schem");
     try {
-      const bytes = await encodeSchematic(palette);
+      const bytes = await encodeSchematic(palette, surface);
       downloadBlob(
         new Blob([bytes as BlobPart]),
-        `${SCHEMATIC_FILE_NAME}.schem`,
+        `${SCHEMATIC_FILE_NAMES[surface]}.schem`,
       );
     } finally {
       setBusy(null);
@@ -82,14 +86,24 @@ export default function ExportDialog({ palette }: { palette: Palette }) {
           <section className="flex flex-col gap-3">
             <SectionTitle>WorldEdit / FAWE</SectionTitle>
             {fixed && (
-              <StudioButton
-                className="self-start"
-                onClick={downloadSchem}
-                disabled={busy === "schem"}
-              >
-                <FileBox className="size-4" />
-                {SCHEMATIC_FILE_NAME}.schem
-              </StudioButton>
+              <div className="flex flex-wrap items-center gap-2">
+                <Segmented
+                  label="Tile orientation"
+                  value={surface}
+                  onChange={setSurface}
+                  options={[
+                    { value: "wall", label: "Wall" },
+                    { value: "floor", label: "Floor" },
+                  ]}
+                />
+                <StudioButton
+                  onClick={downloadSchem}
+                  disabled={busy === "schem"}
+                >
+                  <FileBox className="size-4" />
+                  {SCHEMATIC_FILE_NAMES[surface]}.schem
+                </StudioButton>
+              </div>
             )}
             <ol className="flex flex-col gap-3">
               {commands.map((c, i) => (

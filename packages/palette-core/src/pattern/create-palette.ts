@@ -13,7 +13,6 @@ export function createPalette(
     entries: init.entries ?? [{ blockId: mainBlockId, weight: 60 }],
     version: init.version ?? LATEST_VERSION,
     mode: init.mode ?? "random",
-    surface: init.surface ?? "wall",
     seed: init.seed ?? 1,
     tile: init.tile ?? createTile(4, 4),
     updatedAt: init.updatedAt ?? Date.now(),
