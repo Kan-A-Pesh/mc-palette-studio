@@ -1,7 +1,7 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
 import { MC_VERSIONS } from "@repo/palette-core";
+import * as Select from "@repo/ui/select";
 import { useStudio } from "../../_lib/studio-store";
 import { useActivePalette } from "../../_lib/use-active-palette";
 
@@ -11,20 +11,29 @@ export default function VersionSelect() {
   const setVersion = useStudio((s) => s.setVersion);
 
   return (
-    <label className="relative flex items-center">
-      <span className="sr-only">Minecraft Java version</span>
-      <select
-        value={palette.version}
-        onChange={(e) => setVersion(e.target.value)}
-        className="h-7 appearance-none bg-studio-raised py-0 pl-2 pr-6 text-st-xs tabular-nums text-studio-muted hover:text-studio-text focus-visible:outline-2 focus-visible:outline-studio-accent"
+    <Select.Root
+      variant="compact"
+      size="xsmall"
+      value={palette.version}
+      onValueChange={setVersion}
+    >
+      <Select.Trigger
+        aria-label="Minecraft Java version"
+        className="h-7 min-h-7 rounded-none bg-studio-raised text-st-xs tabular-nums text-studio-muted shadow-none ring-0 hover:bg-studio-hover hover:text-studio-text focus:shadow-none focus:ring-2 focus:ring-studio-accent focus:text-studio-text"
       >
+        <Select.Value>Java {palette.version}</Select.Value>
+      </Select.Trigger>
+      <Select.Content className="studio-root rounded-none bg-studio-panel shadow-st-popover ring-0">
         {MC_VERSIONS.map((v) => (
-          <option key={v.id} value={v.id}>
+          <Select.Item
+            key={v.id}
+            value={v.id}
+            className="rounded-none py-1.5 text-st-sm tabular-nums text-studio-text data-[highlighted]:bg-studio-raised"
+          >
             Java {v.id}
-          </option>
+          </Select.Item>
         ))}
-      </select>
-      <ChevronDown className="pointer-events-none absolute right-1.5 size-3.5 text-studio-faint" />
-    </label>
+      </Select.Content>
+    </Select.Root>
   );
 }
