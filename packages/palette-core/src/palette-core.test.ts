@@ -105,6 +105,8 @@ describe("game versions", () => {
         { blockId: "packed_mud", weight: 50 },
         { blockId: "granite", weight: 30 },
         { blockId: "tuff", weight: 20 },
+        // Added in 1.19, only in the mix.
+        { blockId: "mangrove_planks", weight: 10 },
       ],
       tile,
     });
@@ -112,15 +114,19 @@ describe("game versions", () => {
       unavailableBlocks(p)
         .map((b) => b.id)
         .sort();
-    expect(ids(palette)).toEqual(["mud_bricks", "packed_mud"]);
+    expect(ids(palette)).toEqual([
+      "mangrove_planks",
+      "mud_bricks",
+      "packed_mud",
+    ]);
 
     const cleaned = { ...palette, ...withoutUnavailable(palette) };
     // The main block stays until the user picks another one.
     expect(ids(cleaned)).toEqual(["packed_mud"]);
-    expect(cleaned.entries.map((e) => e.blockId)).toEqual([
-      "packed_mud",
-      "granite",
-      "tuff",
+    expect(cleaned.entries).toEqual([
+      { blockId: "packed_mud", weight: 50 },
+      { blockId: "granite", weight: 30 },
+      { blockId: "tuff", weight: 20 },
     ]);
     expect(cleaned.tile.cells).toEqual([null, "granite"]);
     const nbt = new TextDecoder("latin1").decode(
