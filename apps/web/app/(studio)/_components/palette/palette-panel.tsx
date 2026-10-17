@@ -6,6 +6,7 @@ import SectionTitle from "../shared/section-title";
 import Segmented from "../shared/segmented";
 import MainBlockCard from "./main-block-card";
 import TileEditor from "../tile/tile-editor";
+import UnavailableNotice from "./unavailable-notice";
 import VariationsPanel from "./variations-panel";
 import WeightsEditor from "./weights-editor";
 
@@ -19,6 +20,7 @@ export default function PalettePanel() {
       aria-label="Palette"
     >
       <MainBlockCard blockId={palette.mainBlockId} />
+      <UnavailableNotice palette={palette} />
       <VariationsPanel />
       <div className="h-px shrink-0 bg-studio-line" />
       <section className="flex flex-col gap-3" aria-labelledby="pattern-title">

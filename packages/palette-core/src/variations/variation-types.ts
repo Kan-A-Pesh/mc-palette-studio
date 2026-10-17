@@ -9,6 +9,8 @@ export interface VariationOptions {
   tolerance?: number;
   limit?: number;
   includeTransparent?: boolean;
+  /** Only suggest blocks available in this Java release. */
+  version?: string;
   catalog?: readonly BlockInfo[];
 }
 

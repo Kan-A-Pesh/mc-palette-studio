@@ -2,7 +2,7 @@
 
 import { useDeferredValue, useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
-import { BLOCKS, type Category } from "@repo/palette-core";
+import { BLOCKS, isAvailable, type Category } from "@repo/palette-core";
 import { useActivePalette } from "../../_lib/use-active-palette";
 import SectionTitle from "../shared/section-title";
 import BlockCell from "./block-cell";
@@ -13,6 +13,7 @@ export default function BlockBrowser() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Category | "all">("all");
   const deferredQuery = useDeferredValue(query);
+  const version = palette.version;
 
   const results = useMemo(() => {
     const terms = deferredQuery
@@ -22,12 +23,13 @@ export default function BlockBrowser() {
       .filter(Boolean);
     return BLOCKS.filter(
       (b) =>
+        isAvailable(b, version) &&
         (category === "all" || b.category === category) &&
         terms.every(
           (t) => b.id.includes(t) || b.name.toLowerCase().includes(t),
         ),
     );
-  }, [deferredQuery, category]);
+  }, [deferredQuery, category, version]);
 
   const inPalette = new Set(palette.entries.map((e) => e.blockId));
 

@@ -2,7 +2,8 @@
 
 Build Minecraft block palettes for a build: pick a main block (bricks for a factory, say), get variations suggested automatically, compose a **fixed** pattern (a repeating tile, for floors and friezes) or a **weighted random** one, preview it in 2D and 3D, then export it.
 
-- **Catalog**: 373 full-cube blocks of Java 1.21.11. `packages/palette-core/scripts/build-catalog.mjs` derives ids, faces and colour statistics from the public [minecraft-assets](https://github.com/InventivetalentDev/minecraft-assets) mirror. Textures are loaded at runtime from that mirror and never committed.
+- **Catalog**: 390 full-cube blocks of the latest Java release (26.3). `packages/palette-core/scripts/build-catalog.mjs` derives ids, faces and colour statistics from the public [mcmeta](https://github.com/misode/mcmeta) mirror, plus the release each block shipped in. Textures are loaded at runtime from that mirror and never committed.
+- **Game version**: each palette targets a Java release from 1.14 on. The browser and the suggestions only offer that release's blocks, blocks it lacks are flagged, and the `.schem` carries its data version.
 - **Variations**: by colour and grain (CIELab ΔE + texture contrast), by official family (`stone_bricks` → mossy, cracked, chiseled…), or as a dark-to-light ramp of the same hue.
 - **Exports**: WorldEdit / FAWE commands (`//set 50%bricks,30%granite,20%mud_bricks`), a Sponge `.schem` of the fixed tile (`//schem load palette_tile` then `//set #clipboard`), a share link that carries the whole palette, and a PNG card.
 - **Storage**: palettes are saved in the browser (localStorage), no account needed.

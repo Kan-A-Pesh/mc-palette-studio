@@ -1,4 +1,4 @@
-import { getBlock } from "../catalog";
+import { getBlock, resolveVersion } from "../catalog";
 import { createPalette, MAX_TILE_SIZE, type Palette } from "../pattern";
 import { base64Url } from "./base64-url-constants";
 import type { SharePayloadV1 } from "./share-types";
@@ -42,6 +42,7 @@ export function decodeShare(encoded: string): Palette | null {
     name:
       typeof payload.n === "string" ? payload.n.slice(0, 60) : "Shared palette",
     entries: entries.length ? entries : [{ blockId: payload.m, weight: 100 }],
+    version: resolveVersion(payload.r).id,
     mode: payload.k === "f" ? "fixed" : "random",
     surface: payload.s === "f" ? "floor" : "wall",
     seed: Number.isInteger(payload.d) ? Number(payload.d) : 1,

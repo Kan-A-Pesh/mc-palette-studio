@@ -25,5 +25,6 @@ export const BLOCKS: readonly BlockInfo[] = rawCatalog.blocks.map((b) => {
     ...familyOf(b.id),
     category: categoryOf(b.id),
     transparent: Object.values(faces).some((f) => f.opacity < 0.98),
+    since: b.since,
   };
 });
