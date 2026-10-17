@@ -9,6 +9,7 @@ apps/web/app/**/error.tsx
 apps/web/app/**/loading.tsx
 apps/web/app/**/not-found.tsx
 apps/web/app/**/route.ts
+apps/web/app/**/route.tsx
 apps/web/app/**/template.tsx
 apps/web/app/**/default.tsx
 apps/web/middleware.ts
