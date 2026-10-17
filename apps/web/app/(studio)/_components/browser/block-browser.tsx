@@ -1,15 +1,19 @@
 "use client";
 
-import { useDeferredValue, useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { ArrowLeft, Search, X } from "lucide-react";
 import { BLOCKS, isAvailable, type Category } from "@repo/palette-core";
+import { PICKER_TITLES } from "../../_lib/studio-constants";
+import { useStudio, type PickerPurpose } from "../../_lib/studio-store";
 import { useActivePalette } from "../../_lib/use-active-palette";
 import SectionTitle from "../shared/section-title";
 import BlockCell from "./block-cell";
 import CategoryFilter from "./category-filter";
 
-export default function BlockBrowser() {
+/** The sidebar's block picker; Escape or the back arrow return to the palette. */
+export default function BlockBrowser({ purpose }: { purpose: PickerPurpose }) {
   const palette = useActivePalette();
+  const closePicker = useStudio((s) => s.closePicker);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Category | "all">("all");
   const deferredQuery = useDeferredValue(query);
@@ -33,25 +37,42 @@ export default function BlockBrowser() {
 
   const inPalette = new Set(palette.entries.map((e) => e.blockId));
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closePicker();
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [closePicker]);
+
   return (
-    <aside
-      className="flex min-h-0 flex-col border-r border-studio-line bg-studio-panel"
-      aria-label="Blocks"
-    >
+    <div className="flex min-h-0 flex-1 flex-col">
       <div className="flex flex-col gap-3 border-b border-studio-line p-4">
-        <SectionTitle
-          aside={
-            <span className="text-xs tabular-nums text-studio-faint">
-              {results.length}
-            </span>
-          }
-        >
-          Blocks
-        </SectionTitle>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Back to the palette"
+            onClick={closePicker}
+            className="-ml-1.5 grid size-7 place-items-center text-studio-muted hover:bg-studio-raised hover:text-studio-text focus-visible:outline-2 focus-visible:outline-studio-accent"
+          >
+            <ArrowLeft className="size-4" />
+          </button>
+          <div className="min-w-0 flex-1">
+            <SectionTitle
+              aside={
+                <span className="text-xs tabular-nums text-studio-faint">
+                  {results.length}
+                </span>
+              }
+            >
+              {PICKER_TITLES[purpose]}
+            </SectionTitle>
+          </div>
+        </div>
         <label className="relative block">
           <span className="sr-only">Search blocks</span>
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-studio-faint" />
           <input
+            // The picker opens on demand: typing is the next step.
+            autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search…"
@@ -82,6 +103,7 @@ export default function BlockBrowser() {
             {results.map((block) => (
               <BlockCell
                 key={block.id}
+                purpose={purpose}
                 block={block}
                 isMain={block.id === palette.mainBlockId}
                 selected={inPalette.has(block.id)}
@@ -90,6 +112,6 @@ export default function BlockBrowser() {
           </ul>
         )}
       </div>
-    </aside>
+    </div>
   );
 }

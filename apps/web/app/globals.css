@@ -41,7 +41,7 @@
 }
 
 .studio-layout {
-  grid-template-columns: 300px minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 380px;
 }
 
 .studio-dialog {

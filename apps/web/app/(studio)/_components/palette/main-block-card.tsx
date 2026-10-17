@@ -2,12 +2,21 @@
 
 import { getBlock } from "@repo/palette-core";
 import BlockTexture from "../shared/block-texture";
+import StudioButton from "../shared/studio-button";
 
-export default function MainBlockCard({ blockId }: { blockId: string }) {
+interface MainBlockCardProps {
+  blockId: string;
+  onChange: () => void;
+}
+
+export default function MainBlockCard({
+  blockId,
+  onChange,
+}: MainBlockCardProps) {
   return (
     <section className="flex items-center gap-3 bg-studio-canvas p-3 ring-1 ring-studio-line">
       <BlockTexture blockId={blockId} size={48} className="" />
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <p className="text-st-xs font-semibold uppercase tracking-st-label text-studio-faint">
           Main block
         </p>
@@ -18,6 +27,9 @@ export default function MainBlockCard({ blockId }: { blockId: string }) {
           minecraft:{blockId}
         </p>
       </div>
+      <StudioButton size="sm" data-picker-trigger="main" onClick={onChange}>
+        Change
+      </StudioButton>
     </section>
   );
 }

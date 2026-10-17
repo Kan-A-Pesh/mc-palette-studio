@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { decodeShare } from "@repo/palette-core";
 import { toast } from "@repo/ui/toast";
 import { useStudio } from "../_lib/studio-store";
-import BlockBrowser from "./browser/block-browser";
 import PalettePanel from "./palette/palette-panel";
 import PreviewPanel from "./preview/preview-panel";
 import TopBar from "./top-bar/top-bar";
@@ -37,7 +36,6 @@ export default function Studio() {
         <>
           <TopBar />
           <div className="studio-layout grid min-h-0 flex-1">
-            <BlockBrowser />
             <PreviewPanel />
             <PalettePanel />
           </div>

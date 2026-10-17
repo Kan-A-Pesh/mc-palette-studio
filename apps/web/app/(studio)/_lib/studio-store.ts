@@ -22,6 +22,9 @@ import {
 
 type PreviewMode = "2d" | "3d";
 
+/** Why the sidebar shows the block picker: a new main block, or the mix. */
+export type PickerPurpose = "main" | "add";
+
 interface StudioState {
   palettes: Record<string, Palette>;
   activeId: string;
@@ -32,6 +35,8 @@ interface StudioState {
   showGrid: boolean;
   /** Block painted into the fixed tile. */
   brushId: string | null;
+  /** The sidebar shows the block picker instead of the palette when set. */
+  picker: PickerPurpose | null;
 
   update: (
     patch: Partial<Palette> | ((p: Palette) => Partial<Palette>),
@@ -62,6 +67,8 @@ interface StudioState {
   setPreviewSize: (size: number) => void;
   setShowGrid: (show: boolean) => void;
   setBrush: (blockId: string | null) => void;
+  openPicker: (purpose: PickerPurpose) => void;
+  closePicker: () => void;
 }
 
 type PersistedState = Pick<
@@ -111,6 +118,7 @@ export const useStudio = create<StudioState>()(
           palettes: { ...s.palettes, [palette.id]: palette },
           activeId: palette.id,
           brushId: null,
+          picker: null,
         }));
 
       return {
@@ -122,6 +130,7 @@ export const useStudio = create<StudioState>()(
         previewSize: 24,
         showGrid: false,
         brushId: null,
+        picker: null,
 
         update,
 
@@ -232,7 +241,8 @@ export const useStudio = create<StudioState>()(
               activeId: s.activeId === id ? next.id : s.activeId,
             };
           }),
-        selectPalette: (id) => set({ activeId: id, brushId: null }),
+        selectPalette: (id) =>
+          set({ activeId: id, brushId: null, picker: null }),
 
         setVariationMode: (variationMode) => set({ variationMode }),
         setTolerance: (tolerance) => set({ tolerance }),
@@ -240,6 +250,8 @@ export const useStudio = create<StudioState>()(
         setPreviewSize: (previewSize) => set({ previewSize }),
         setShowGrid: (showGrid) => set({ showGrid }),
         setBrush: (brushId) => set({ brushId }),
+        openPicker: (picker) => set({ picker }),
+        closePicker: () => set({ picker: null }),
       };
     },
     {
