@@ -36,8 +36,8 @@ export default function Studio() {
         <>
           <TopBar />
           <div className="studio-layout grid min-h-0 flex-1">
-            <PreviewPanel />
             <PalettePanel />
+            <PreviewPanel />
           </div>
         </>
       ) : (
