@@ -1,10 +1,5 @@
-import {
-  getBlock,
-  tileUsage,
-  toPercentages,
-  worldEditPattern,
-  type Palette,
-} from "@repo/palette-core";
+import { getBlock, worldEditPattern, type Palette } from "@repo/palette-core";
+import { paletteSummary } from "@/lib/og/palette-summary";
 import { drawSurface } from "../draw/draw-surface";
 import { prepareFaces } from "../draw/prepare-faces";
 import { CARD_STYLE } from "../studio-constants";
@@ -20,9 +15,7 @@ const MAX_COMMAND = 110;
 export async function renderPaletteCard(palette: Palette): Promise<Blob> {
   const { width, padding, columns, listWidth, background, text, muted } =
     CARD_STYLE;
-  const composition = toPercentages(
-    palette.mode === "fixed" ? tileUsage(palette) : palette.entries,
-  );
+  const { composition, label } = paletteSummary(palette);
   const face = "side";
   const [surfaceFaces, swatchFaces] = await Promise.all([
     prepareFaces(palette),
@@ -46,15 +39,7 @@ export async function renderPaletteCard(palette: Palette): Promise<Blob> {
   ctx.fillText(palette.name, padding, padding + 36);
   ctx.fillStyle = muted;
   ctx.font = "20px system-ui, sans-serif";
-  const kind =
-    palette.mode === "fixed"
-      ? `Tile ${palette.tile.width}×${palette.tile.height}`
-      : "Random";
-  ctx.fillText(
-    `${kind} · Minecraft Java ${palette.version}`,
-    padding,
-    padding + 72,
-  );
+  ctx.fillText(label, padding, padding + 72);
 
   composition.forEach((entry, i) => {
     const y = top + i * ROW;
