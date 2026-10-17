@@ -44,7 +44,6 @@ export function decodeShare(encoded: string): Palette | null {
     entries: entries.length ? entries : [{ blockId: payload.m, weight: 100 }],
     version: resolveVersion(payload.r).id,
     mode: payload.k === "f" ? "fixed" : "random",
-    surface: payload.s === "f" ? "floor" : "wall",
     seed: Number.isInteger(payload.d) ? Number(payload.d) : 1,
     tile: { width: w, height: h, cells: tileCells },
   });

@@ -1,4 +1,5 @@
 export type PatternMode = "random" | "fixed";
+/** Where a fixed tile is laid in the world, for schematic exports. */
 export type Surface = "floor" | "wall";
 
 export interface WeightedBlock {
@@ -23,7 +24,6 @@ export interface Palette {
   /** Java release the palette is built for. */
   version: string;
   mode: PatternMode;
-  surface: Surface;
   seed: number;
   tile: Tile;
   updatedAt: number;

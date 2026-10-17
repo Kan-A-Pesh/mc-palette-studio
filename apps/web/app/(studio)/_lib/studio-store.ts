@@ -9,7 +9,6 @@ import {
   resizeTile,
   type Palette,
   type PatternMode,
-  type Surface,
   type VariationMode,
   withoutUnavailable,
 } from "@repo/palette-core";
@@ -20,7 +19,10 @@ import {
   STARTER_PALETTE,
 } from "./studio-constants";
 
+/** Camera of the 3D preview: "2d" looks straight down, orthographic. */
 type PreviewMode = "2d" | "3d";
+
+type Projection = "perspective" | "orthographic";
 
 /** Why the sidebar shows the block picker: a new main block, or the mix. */
 export type PickerPurpose = "main" | "add";
@@ -31,6 +33,8 @@ interface StudioState {
   variationMode: VariationMode;
   tolerance: number;
   previewMode: PreviewMode;
+  /** Projection of the free 3D camera. */
+  projection: Projection;
   previewSize: number;
   showGrid: boolean;
   /** Block painted into the fixed tile. */
@@ -49,7 +53,6 @@ interface StudioState {
   /** Drops the blocks the palette's release lacks, except the main one. */
   removeUnavailable: () => void;
   setMode: (mode: PatternMode) => void;
-  setSurface: (surface: Surface) => void;
   reseed: () => void;
   paintCell: (index: number, blockId: string | null) => void;
   resizeTile: (width: number, height: number) => void;
@@ -64,6 +67,7 @@ interface StudioState {
   setVariationMode: (mode: VariationMode) => void;
   setTolerance: (tolerance: number) => void;
   setPreviewMode: (mode: PreviewMode) => void;
+  setProjection: (projection: Projection) => void;
   setPreviewSize: (size: number) => void;
   setShowGrid: (show: boolean) => void;
   setBrush: (blockId: string | null) => void;
@@ -78,13 +82,21 @@ type PersistedState = Pick<
   | "variationMode"
   | "tolerance"
   | "previewMode"
+  | "projection"
   | "previewSize"
   | "showGrid"
 >;
 
-/** What version 1 of the store wrote to localStorage. */
-type PersistedStateV1 = Omit<PersistedState, "palettes"> & {
-  palettes: Record<string, Omit<Palette, "version"> & { version?: string }>;
+/**
+ * What versions 1 and 2 of the store wrote to localStorage: palettes without
+ * a game version (v1) or with a wall/floor surface, and no projection.
+ */
+type PersistedStateV2 = Omit<PersistedState, "palettes" | "projection"> & {
+  palettes: Record<
+    string,
+    Omit<Palette, "version"> & { version?: string; surface?: string }
+  >;
+  projection?: Projection;
 };
 
 const starterPalette = () =>
@@ -127,6 +139,7 @@ export const useStudio = create<StudioState>()(
         variationMode: "color",
         tolerance: 50,
         previewMode: "2d",
+        projection: "perspective",
         previewSize: 24,
         showGrid: false,
         brushId: null,
@@ -187,7 +200,6 @@ export const useStudio = create<StudioState>()(
         removeUnavailable: () => update(withoutUnavailable),
 
         setMode: (mode) => update({ mode }),
-        setSurface: (surface) => update({ surface }),
         reseed: () =>
           update((p) => ({
             seed: (p.seed % 99991) + 1 + Math.floor(Math.random() * 997),
@@ -247,6 +259,7 @@ export const useStudio = create<StudioState>()(
         setVariationMode: (variationMode) => set({ variationMode }),
         setTolerance: (tolerance) => set({ tolerance }),
         setPreviewMode: (previewMode) => set({ previewMode }),
+        setProjection: (projection) => set({ projection }),
         setPreviewSize: (previewSize) => set({ previewSize }),
         setShowGrid: (showGrid) => set({ showGrid }),
         setBrush: (brushId) => set({ brushId }),
@@ -256,17 +269,23 @@ export const useStudio = create<StudioState>()(
     },
     {
       name: "palette-studio",
-      version: 2,
+      version: 3,
       // v1 palettes predate game versions: they target the latest release.
+      // v2 palettes carry a surface the 3D-only preview no longer uses.
       migrate: (persisted) => {
-        const state = persisted as PersistedStateV1;
+        const state = persisted as PersistedStateV2;
         const palettes = Object.fromEntries(
-          Object.entries(state.palettes).map(([id, p]) => [
-            id,
-            { ...p, version: p.version ?? LATEST_VERSION },
-          ]),
+          Object.entries(state.palettes).map(([id, p]) => {
+            const palette = { ...p, version: p.version ?? LATEST_VERSION };
+            delete palette.surface;
+            return [id, palette];
+          }),
         );
-        return { ...state, palettes };
+        return {
+          ...state,
+          palettes,
+          projection: state.projection ?? "perspective",
+        };
       },
       partialize: (s): PersistedState => ({
         palettes: s.palettes,
@@ -274,6 +293,7 @@ export const useStudio = create<StudioState>()(
         variationMode: s.variationMode,
         tolerance: s.tolerance,
         previewMode: s.previewMode,
+        projection: s.projection,
         previewSize: s.previewSize,
         showGrid: s.showGrid,
       }),

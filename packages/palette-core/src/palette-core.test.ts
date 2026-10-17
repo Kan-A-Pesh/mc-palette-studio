@@ -17,9 +17,11 @@ import {
   resolveVersion,
   sameFamily,
   similarByColor,
+  tileLayout,
   toPercentages,
   unavailableBlocks,
   withoutUnavailable,
+  worldEditCommands,
   worldEditPattern,
 } from "./index";
 
@@ -130,7 +132,7 @@ describe("game versions", () => {
     ]);
     expect(cleaned.tile.cells).toEqual([null, "granite"]);
     const nbt = new TextDecoder("latin1").decode(
-      gunzipSync(await encodeSchematic(cleaned)),
+      gunzipSync(await encodeSchematic(cleaned, "wall")),
     );
     expect(nbt).not.toContain("minecraft:mud_bricks");
   });
@@ -260,7 +262,6 @@ describe("exports", () => {
         { blockId: "granite", weight: 30 },
       ],
       mode: "fixed",
-      surface: "floor",
       seed: 42,
       tile,
     });
@@ -270,7 +271,6 @@ describe("exports", () => {
       mainBlockId: "bricks",
       entries: palette.entries,
       mode: "fixed",
-      surface: "floor",
       seed: 42,
       tile,
     });
@@ -286,14 +286,34 @@ describe("exports", () => {
     expect(decodeShare(encoded)?.version).toBe(LATEST_VERSION);
   });
 
+  it("still reads links that carry a surface", () => {
+    const legacy = { v: 1, n: "Old", m: "bricks", e: [["bricks", 1]], s: "f" };
+    const encoded = btoa(JSON.stringify(legacy)).replace(/=+$/, "");
+    expect(decodeShare(encoded)).toMatchObject({ mainBlockId: "bricks" });
+    expect(decodeShare(encoded)).not.toHaveProperty("surface");
+  });
+
+  it("lays the tile flat for floors and upright for walls", () => {
+    const tile = createTile(3, 2);
+    tile.cells[0] = "granite"; // top-left
+    const palette = createPalette("bricks", { mode: "fixed", tile });
+    const floor = tileLayout(palette, "floor");
+    expect([floor.width, floor.height, floor.length]).toEqual([3, 1, 2]);
+    expect(floor.blockAt(0, 0, 0)).toBe("granite");
+    const wall = tileLayout(palette, "wall");
+    expect([wall.width, wall.height, wall.length]).toEqual([3, 2, 1]);
+    // Row 0 is the top of the wall.
+    expect(wall.blockAt(0, 1, 0)).toBe("granite");
+    expect(wall.blockAt(0, 0, 0)).toBe("bricks");
+    expect(worldEditCommands(palette, "floor")[0]?.command).toBe(
+      "//schem load palette_floor_tile",
+    );
+  });
+
   it("encodes a gzipped Sponge schematic of the tile", async () => {
     const tile = createTile(2, 3, "granite");
-    const palette = createPalette("bricks", {
-      mode: "fixed",
-      surface: "wall",
-      tile,
-    });
-    const nbt = gunzipSync(await encodeSchematic(palette));
+    const palette = createPalette("bricks", { mode: "fixed", tile });
+    const nbt = gunzipSync(await encodeSchematic(palette, "wall"));
     expect(nbt[0]).toBe(10); // root compound
     const text = new TextDecoder("latin1").decode(nbt);
     expect(text).toContain("Schematic");
@@ -308,7 +328,7 @@ describe("schematic NBT", () => {
       mode: "fixed",
       tile: createTile(1, 1),
     });
-    const nbt = gunzipSync(await encodeSchematic(palette));
+    const nbt = gunzipSync(await encodeSchematic(palette, "wall"));
     const name = (s: string) => [0, s.length, ...Buffer.from(s)];
     const indexOf = (bytes: number[]) =>
       Buffer.from(nbt).indexOf(Buffer.from(bytes));
@@ -323,7 +343,9 @@ describe("schematic NBT", () => {
         version,
         tile: createTile(1, 1),
       });
-      const nbt = Buffer.from(gunzipSync(await encodeSchematic(palette)));
+      const nbt = Buffer.from(
+        gunzipSync(await encodeSchematic(palette, "wall")),
+      );
       const tag = Buffer.from([3, 0, 11, ...Buffer.from("DataVersion")]);
       return nbt.readInt32BE(nbt.indexOf(tag) + tag.length);
     };

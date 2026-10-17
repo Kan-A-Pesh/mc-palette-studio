@@ -1,4 +1,5 @@
 import { blockAt, type Palette } from "@repo/palette-core";
+import { wallHeight } from "./wall-height";
 
 interface Placement {
   id: string;
@@ -12,7 +13,7 @@ interface Placement {
  * Each surface uses its own random layer so they do not mirror each other.
  */
 export function buildCorner(palette: Palette, size: number): Placement[] {
-  const height = Math.max(4, Math.round(size * 0.56));
+  const height = wallHeight(size);
   const placements: Placement[] = [];
   for (let x = 0; x < size; x++) {
     for (let z = 0; z < size; z++) {

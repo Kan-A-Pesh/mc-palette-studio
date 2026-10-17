@@ -7,7 +7,7 @@ import { useStudio } from "../../_lib/studio-store";
 import BlockTexture from "../shared/block-texture";
 import type { TileToolProps } from "./tile-types";
 
-export default function BrushPicker({ palette, brush, face }: TileToolProps) {
+export default function BrushPicker({ palette, brush }: TileToolProps) {
   const setBrush = useStudio((s) => s.setBrush);
   const isEraser = brush === palette.mainBlockId;
 
@@ -36,7 +36,7 @@ export default function BrushPicker({ palette, brush, face }: TileToolProps) {
                 selected ? "shadow-st-selected" : "hover:bg-studio-raised",
               )}
             >
-              <BlockTexture blockId={entry.blockId} face={face} size={28} />
+              <BlockTexture blockId={entry.blockId} size={28} />
             </button>
           );
         })}

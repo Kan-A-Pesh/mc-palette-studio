@@ -1,4 +1,5 @@
 import type { Category, VariationMode } from "@repo/palette-core";
+import type { PreviewView } from "./preview/preview-types";
 import type { PickerPurpose } from "./studio-store";
 
 /** Weight given to a block when it joins a palette. */
@@ -22,8 +23,8 @@ export const STARTER_PALETTE = {
   ],
 };
 
-/** The 3D scene keeps the block count reasonable. */
-export const PREVIEW_3D_MAX_SIZE = 32;
+/** Range of the preview size slider, in blocks. */
+export const PREVIEW_SIZE = { min: 8, max: 48 };
 
 /** How many suggestions "add the first ones" picks. */
 export const QUICK_ADD_COUNT = 6;
@@ -63,4 +64,11 @@ export const CARD_STYLE = {
 export const PICKER_TITLES: Record<PickerPurpose, string> = {
   main: "Choose the main block",
   add: "Add blocks",
+};
+
+/** Accessible name of the preview canvas, with how to move the camera. */
+export const PREVIEW_ARIA_LABELS: Record<PreviewView, string> = {
+  top: "Top-down preview, drag to pan, scroll to zoom",
+  perspective: "3D preview, drag to orbit",
+  orthographic: "Orthographic 3D preview, drag to orbit",
 };

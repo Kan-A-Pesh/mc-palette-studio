@@ -7,11 +7,10 @@ import {
 } from "@repo/palette-core";
 import { drawSurface } from "../draw/draw-surface";
 import { prepareFaces } from "../draw/prepare-faces";
-import { surfaceFace } from "../draw/surface-face";
-import { surfaceRows } from "../draw/surface-rows";
 import { CARD_STYLE } from "../studio-constants";
 import { createCanvas } from "../textures/create-canvas";
 import { loadFaces } from "../textures/load-faces";
+import { wallHeight } from "../preview/wall-height";
 
 const SWATCH = 48;
 const ROW = 64;
@@ -24,7 +23,7 @@ export async function renderPaletteCard(palette: Palette): Promise<Blob> {
   const composition = toPercentages(
     palette.mode === "fixed" ? tileUsage(palette) : palette.entries,
   );
-  const face = surfaceFace(palette);
+  const face = "side";
   const [surfaceFaces, swatchFaces] = await Promise.all([
     prepareFaces(palette),
     loadFaces(
@@ -33,7 +32,7 @@ export async function renderPaletteCard(palette: Palette): Promise<Blob> {
     ),
   ]);
 
-  const rows = surfaceRows(palette, columns);
+  const rows = wallHeight(columns);
   const cell = Math.floor((width - padding * 3 - listWidth) / columns);
   const top = padding + 108;
   const height =
@@ -51,8 +50,11 @@ export async function renderPaletteCard(palette: Palette): Promise<Blob> {
     palette.mode === "fixed"
       ? `Tile ${palette.tile.width}×${palette.tile.height}`
       : "Random";
-  const surface = palette.surface === "floor" ? "Floor" : "Wall";
-  ctx.fillText(`${kind} · ${surface} · Minecraft`, padding, padding + 72);
+  ctx.fillText(
+    `${kind} · Minecraft Java ${palette.version}`,
+    padding,
+    padding + 72,
+  );
 
   composition.forEach((entry, i) => {
     const y = top + i * ROW;

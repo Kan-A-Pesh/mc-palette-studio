@@ -8,7 +8,8 @@ export interface SharePayloadV1 {
   m: string;
   e: [string, number][];
   k: "r" | "f";
-  s: "w" | "f";
+  /** Surface of links made before the 3D-only preview; ignored. */
+  s?: "w" | "f";
   d: number;
   t: [number, number, (string | 0)[]];
   /** Target Java release; links made before it existed use the latest. */
