@@ -126,5 +126,7 @@ export async function rasterPalette(
       return [id, toDataUrl(png)];
     }),
   );
-  return { wall: toDataUrl(wall), swatches };
+  // A missing texture is drawn flat: the card is worth retrying later.
+  const complete = [...textures.values()].every(Boolean);
+  return { wall: toDataUrl(wall), swatches, complete };
 }

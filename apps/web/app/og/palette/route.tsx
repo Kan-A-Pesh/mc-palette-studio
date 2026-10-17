@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   const { composition, label } = paletteSummary(palette);
   const fits = composition.length <= PALETTE_OG.MAX_ROWS;
   const rows = composition.slice(0, PALETTE_OG.MAX_ROWS - (fits ? 0 : 1));
-  const { wall, swatches } = await rasterPalette(
+  const { wall, swatches, complete } = await rasterPalette(
     palette,
     rows.map((e) => e.blockId),
     PALETTE_OG.SWATCH,
@@ -33,8 +33,13 @@ export async function GET(request: Request) {
     ),
     {
       ...PALETTE_OG.SIZE,
-      // A link always encodes the same palette, so its image never changes.
-      headers: { "Cache-Control": "public, max-age=31536000, immutable" },
+      // A link always encodes the same palette, so its image never changes,
+      // unless a texture failed to load and was drawn flat.
+      headers: {
+        "Cache-Control": complete
+          ? "public, max-age=31536000, immutable"
+          : "public, max-age=300",
+      },
     },
   );
 }
