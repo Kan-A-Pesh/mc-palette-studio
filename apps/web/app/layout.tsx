@@ -3,6 +3,7 @@ import "./globals.css";
 import { dmSans } from "./fonts";
 import { Providers } from "./providers";
 import { cn } from "@repo/ui/utils/cn";
+import { OPEN_GRAPH, TWITTER } from "@/lib/og/share-constants";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,19 +15,8 @@ export const metadata: Metadata = {
   description: SITE.DESCRIPTION,
   applicationName: SITE.NAME,
   keywords: [...SITE.KEYWORDS],
-  openGraph: {
-    type: "website",
-    url: "/",
-    siteName: SITE.NAME,
-    locale: "en_US",
-    title: SITE.TITLE,
-    description: SITE.SHARE_DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: SITE.TITLE,
-    description: SITE.SHARE_DESCRIPTION,
-  },
+  openGraph: OPEN_GRAPH,
+  twitter: TWITTER,
   robots: { index: true, follow: true },
   formatDetection: { telephone: false, email: false, address: false },
 };

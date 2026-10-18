@@ -26,7 +26,13 @@ export function decodeShare(encoded: string): Palette | null {
     return null;
   }
   const entries = payload.e
-    .filter(([id, w]) => isKnown(id) && typeof w === "number" && w >= 0)
+    .filter(
+      (entry): entry is [string, number] =>
+        Array.isArray(entry) &&
+        isKnown(entry[0]) &&
+        typeof entry[1] === "number" &&
+        entry[1] >= 0,
+    )
     .map(([blockId, weight]) => ({ blockId, weight }));
   const [width, height, cells] = Array.isArray(payload.t)
     ? payload.t

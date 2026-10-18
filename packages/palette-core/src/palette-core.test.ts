@@ -286,6 +286,19 @@ describe("exports", () => {
     expect(decodeShare(encoded)?.version).toBe(LATEST_VERSION);
   });
 
+  it("skips malformed blocks in a share link", () => {
+    const payload = {
+      v: 1,
+      n: "Bad",
+      m: "bricks",
+      e: [null, 3, ["granite", 2]],
+    };
+    const encoded = btoa(JSON.stringify(payload)).replace(/=+$/, "");
+    expect(decodeShare(encoded)?.entries).toEqual([
+      { blockId: "granite", weight: 2 },
+    ]);
+  });
+
   it("still reads links that carry a surface", () => {
     const legacy = { v: 1, n: "Old", m: "bricks", e: [["bricks", 1]], s: "f" };
     const encoded = btoa(JSON.stringify(legacy)).replace(/=+$/, "");
